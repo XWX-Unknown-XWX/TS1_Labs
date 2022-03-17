@@ -1,11 +1,12 @@
-package lab04;
+package lab05;
 
+import java.util.Properties;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.Properties;
 
 /**
  * @author balikm1
@@ -13,45 +14,32 @@ import java.util.Properties;
 public class MailHelper {
 
     private Mail mail;
+    private final DBManager dbManager;
+    protected Thread sendingThread; // keep the thread reference for synchronization in unit tests
+
+    public MailHelper(DBManager dbManager) {
+        this.dbManager = dbManager;
+    }
 
     public Mail getMail() {
         return mail;
     }
 
-    public MailHelper() {
-        mail = new Mail();
-    }
-
     public void createAndSendMail(String to, String subject, String body) {
-        getMail(to, subject, body);
-        saveMail();
-        handleDebugAndSend(mail);
-    }
-
-    private static void handleDebugAndSend(Mail mail) {
-        if (!Configuration.isDebug) {
-            (new Thread(() -> {
-                sendMail(mail.getMailId());
-            })).start();
-        }
-    }
-
-    private void saveMail() {
-        DBManager dbManager = new DBManager();
-        dbManager.saveMail(mail);
-    }
-
-    private void getMail(String to, String subject, String body) {
+        Mail mail = new Mail();
         mail.setTo(to);
         mail.setSubject(subject);
         mail.setBody(body);
         mail.setIsSent(false);
+        insertMailToDb(mail);
+
+        sendMailAsync(mail.getMailId());
     }
 
-    public static void sendMail(int mailId) {
+    public void sendMail(int mailId) {
         try {
             // get entity
-            Mail mail = new DBManager().findMail(mailId);
+            mail = loadMail(mailId);
             if (mail == null) {
                 return;
             }
@@ -73,12 +61,40 @@ public class MailHelper {
             message.setText(mail.getBody(), "UTF-8");
 
             // send
-            Transport.send(message);
+            sendMail(message);
             mail.setIsSent(true);
-            new DBManager().saveMail(mail);
+            saveMailChanges(mail);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    protected void insertMailToDb(Mail mail) {
+        //DBManager dbManager = new DBManager();
+        dbManager.saveMail(mail);
+    }
+
+    protected void sendMailAsync(int mailId) {
+        if (!Configuration.isDebug) {
+            (sendingThread = new Thread(() -> {
+                sendMail(mailId);
+            })).start();
+        }
+    }
+
+    protected Mail loadMail(int mailID) {
+        //DBManager dbManager = new DBManager();
+        return dbManager.findMail(mailID);
+    }
+
+    protected void saveMailChanges(Mail mail) {
+        dbManager.saveMail(mail);
+    }
+
+    protected void sendMail(MimeMessage message) throws MessagingException {
+        System.out.println("Mail is sent");
+        // TODO: 17.03.2022 implement Transport.send()
+
+        //        Transport.send(message);
+    }
 }
