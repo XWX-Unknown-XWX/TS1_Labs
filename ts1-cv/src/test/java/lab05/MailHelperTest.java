@@ -1,13 +1,13 @@
 package lab05;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import javax.mail.internet.MimeMessage;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
@@ -51,8 +51,8 @@ public class MailHelperTest {
         assertEquals(expectedSendMailCallCount, helper.getSendMailCallCounter());
     }
 
-    class TestableMailHelper extends MailHelper {
-        private final List<Mail> mailStorage = new ArrayList<Mail>();
+    static class TestableMailHelper extends MailHelper {
+        private final List<Mail> mailStorage = new ArrayList<>();
         private int sendMailCallCounter = 0;
 
         public TestableMailHelper() {
@@ -89,7 +89,7 @@ public class MailHelperTest {
         }
 
         @Override
-        protected void sendMail(MimeMessage message) throws MessagingException {
+        protected void sendMail(MimeMessage message) {
             // DO NOTHING
             sendMailCallCounter++;
         }

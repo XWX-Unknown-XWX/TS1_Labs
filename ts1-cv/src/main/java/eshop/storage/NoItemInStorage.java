@@ -1,4 +1,4 @@
-package hw05_eshop.storage;
+package eshop.storage;
 
 public class NoItemInStorage extends Exception{
     public NoItemInStorage() {

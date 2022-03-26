@@ -1,12 +1,12 @@
-package hw05_eshop.archive;
+package eshop.archive;
 
-import hw05_eshop.shop.Item;
+import eshop.shop.Item;
 
-class ItemPurchaseArchiveEntry {
-    private Item refItem;
+public class ItemPurchaseArchiveEntry {
+    private final Item refItem;
     private int soldCount;
     
-    ItemPurchaseArchiveEntry(Item refItem) {
+    public ItemPurchaseArchiveEntry(Item refItem) {
         this.refItem = refItem;
         soldCount = 1;
     }

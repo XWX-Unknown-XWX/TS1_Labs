@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CalculatorTests {
     @ParameterizedTest(name = "{0} plus {1} should be equal to {2}")
     @CsvSource({"1, 2, 3", "2, 3, 5", "5, 14, 19"})
-    public void add_addsAandB_returnsC(int a, int b, int c) {
+    public void add_addsAndB_returnsC(int a, int b, int c) {
 // arrange
         Calculator calc = new Calculator();
         int expectedResult = c;

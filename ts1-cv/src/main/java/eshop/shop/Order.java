@@ -1,4 +1,4 @@
-package hw05_eshop.shop;
+package eshop.shop;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
-package hw05_eshop.storage;
+package eshop.storage;
 
-import hw05_eshop.shop.Item;
-import hw05_eshop.shop.Order;
+import eshop.shop.Item;
+import eshop.shop.Order;
 
 import java.util.ArrayList;
 import java.util.Collection;
