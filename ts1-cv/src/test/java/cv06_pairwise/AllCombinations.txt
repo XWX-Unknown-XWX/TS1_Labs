@@ -1,0 +1,247 @@
+                                                   Datum
+     Registrace   Jméno/Příjmení     Destinace    narození        Sleva
+ 1     ANO        Dmitry Rastvorov     V EU      25.09.2001      Student
+ 2     ANO        Dmitry Rastvorov     V EU      25.09.2001     Důchodce
+ 3     ANO        Dmitry Rastvorov     V EU      25.09.2001   Slevový kupon
+ 4     ANO        Dmitry Rastvorov     V EU      03/23/2000      Student
+ 5     ANO        Dmitry Rastvorov     V EU      03/23/2000     Důchodce
+ 6     ANO        Dmitry Rastvorov     V EU      03/23/2000   Slevový kupon
+ 7     ANO        Dmitry Rastvorov     V EU      2003-04-22      Student
+ 8     ANO        Dmitry Rastvorov     V EU      2003-04-22     Důchodce
+ 9     ANO        Dmitry Rastvorov     V EU      2003-04-22   Slevový kupon
+10     ANO        Dmitry Rastvorov   Mimo EU     25.09.2001      Student
+11     ANO        Dmitry Rastvorov   Mimo EU     25.09.2001     Důchodce
+12     ANO        Dmitry Rastvorov   Mimo EU     25.09.2001   Slevový kupon
+13     ANO        Dmitry Rastvorov   Mimo EU     03/23/2000      Student
+14     ANO        Dmitry Rastvorov   Mimo EU     03/23/2000     Důchodce
+15     ANO        Dmitry Rastvorov   Mimo EU     03/23/2000   Slevový kupon
+16     ANO        Dmitry Rastvorov   Mimo EU     2003-04-22      Student
+17     ANO        Dmitry Rastvorov   Mimo EU     2003-04-22     Důchodce
+18     ANO        Dmitry Rastvorov   Mimo EU     2003-04-22   Slevový kupon
+19     ANO        Dmitry Rastvorov     V EU      25.09.2001      Student
+20     ANO        Dmitry Rastvorov     V EU      25.09.2001     Důchodce
+21     ANO        Dmitry Rastvorov     V EU      25.09.2001   Slevový kupon
+22     ANO        Dmitry Rastvorov     V EU      03/23/2000      Student
+23     ANO        Dmitry Rastvorov     V EU      03/23/2000     Důchodce
+24     ANO        Dmitry Rastvorov     V EU      03/23/2000   Slevový kupon
+25     ANO        Dmitry Rastvorov     V EU      2003-04-22      Student
+26     ANO        Dmitry Rastvorov     V EU      2003-04-22     Důchodce
+27     ANO        Dmitry Rastvorov     V EU      2003-04-22   Slevový kupon
+28     ANO             NULL            V EU      25.09.2001      Student
+29     ANO             NULL            V EU      25.09.2001     Důchodce
+30     ANO             NULL            V EU      25.09.2001   Slevový kupon
+31     ANO             NULL            V EU      03/23/2000      Student
+32     ANO             NULL            V EU      03/23/2000     Důchodce
+33     ANO             NULL            V EU      03/23/2000   Slevový kupon
+34     ANO             NULL            V EU      2003-04-22      Student
+35     ANO             NULL            V EU      2003-04-22     Důchodce
+36     ANO             NULL            V EU      2003-04-22   Slevový kupon
+37     ANO             NULL          Mimo EU     25.09.2001      Student
+38     ANO             NULL          Mimo EU     25.09.2001     Důchodce
+39     ANO             NULL          Mimo EU     25.09.2001   Slevový kupon
+40     ANO             NULL          Mimo EU     03/23/2000      Student
+41     ANO             NULL          Mimo EU     03/23/2000     Důchodce
+42     ANO             NULL          Mimo EU     03/23/2000   Slevový kupon
+43     ANO             NULL          Mimo EU     2003-04-22      Student
+44     ANO             NULL          Mimo EU     2003-04-22     Důchodce
+45     ANO             NULL          Mimo EU     2003-04-22   Slevový kupon
+46     ANO             NULL            V EU      25.09.2001      Student
+47     ANO             NULL            V EU      25.09.2001     Důchodce
+48     ANO             NULL            V EU      25.09.2001   Slevový kupon
+49     ANO             NULL            V EU      03/23/2000      Student
+50     ANO             NULL            V EU      03/23/2000     Důchodce
+51     ANO             NULL            V EU      03/23/2000   Slevový kupon
+52     ANO             NULL            V EU      2003-04-22      Student
+53     ANO             NULL            V EU      2003-04-22     Důchodce
+54     ANO             NULL            V EU      2003-04-22   Slevový kupon
+55     ANO         J1R¡ S@nsøn         V EU      25.09.2001      Student
+56     ANO         J1R¡ S@nsøn         V EU      25.09.2001     Důchodce
+57     ANO         J1R¡ S@nsøn         V EU      25.09.2001   Slevový kupon
+58     ANO         J1R¡ S@nsøn         V EU      03/23/2000      Student
+59     ANO         J1R¡ S@nsøn         V EU      03/23/2000     Důchodce
+60     ANO         J1R¡ S@nsøn         V EU      03/23/2000   Slevový kupon
+61     ANO         J1R¡ S@nsøn         V EU      2003-04-22      Student
+62     ANO         J1R¡ S@nsøn         V EU      2003-04-22     Důchodce
+63     ANO         J1R¡ S@nsøn         V EU      2003-04-22   Slevový kupon
+64     ANO         J1R¡ S@nsøn       Mimo EU     25.09.2001      Student
+65     ANO         J1R¡ S@nsøn       Mimo EU     25.09.2001     Důchodce
+66     ANO         J1R¡ S@nsøn       Mimo EU     25.09.2001   Slevový kupon
+67     ANO         J1R¡ S@nsøn       Mimo EU     03/23/2000      Student
+68     ANO         J1R¡ S@nsøn       Mimo EU     03/23/2000     Důchodce
+69    ANO    J1R¡ S@nsøn       Mimo EU   03/23/2000   Slevový kupon
+70    ANO    J1R¡ S@nsøn       Mimo EU   2003-04-22      Student
+71    ANO    J1R¡ S@nsøn       Mimo EU   2003-04-22     Důchodce
+72    ANO    J1R¡ S@nsøn       Mimo EU   2003-04-22   Slevový kupon
+73    ANO    J1R¡ S@nsøn        V EU     25.09.2001      Student
+74    ANO    J1R¡ S@nsøn        V EU     25.09.2001     Důchodce
+75    ANO    J1R¡ S@nsøn        V EU     25.09.2001   Slevový kupon
+76    ANO    J1R¡ S@nsøn        V EU     03/23/2000      Student
+77    ANO    J1R¡ S@nsøn        V EU     03/23/2000     Důchodce
+78    ANO    J1R¡ S@nsøn        V EU     03/23/2000   Slevový kupon
+79    ANO    J1R¡ S@nsøn        V EU     2003-04-22      Student
+80    ANO    J1R¡ S@nsøn        V EU     2003-04-22     Důchodce
+81    ANO    J1R¡ S@nsøn        V EU     2003-04-22   Slevový kupon
+82     NE   Dmitry Rastvorov    V EU     25.09.2001      Student
+83     NE   Dmitry Rastvorov    V EU     25.09.2001     Důchodce
+84     NE   Dmitry Rastvorov    V EU     25.09.2001   Slevový kupon
+85     NE   Dmitry Rastvorov    V EU     03/23/2000      Student
+86     NE   Dmitry Rastvorov    V EU     03/23/2000     Důchodce
+87     NE   Dmitry Rastvorov    V EU     03/23/2000   Slevový kupon
+88     NE   Dmitry Rastvorov    V EU     2003-04-22      Student
+89    NE    Dmitry Rastvorov    V EU     2003-04-22     Důchodce
+90    NE    Dmitry Rastvorov    V EU     2003-04-22   Slevový kupon
+91    NE    Dmitry Rastvorov   Mimo EU   25.09.2001      Student
+92    NE    Dmitry Rastvorov   Mimo EU   25.09.2001     Důchodce
+93    NE    Dmitry Rastvorov   Mimo EU   25.09.2001   Slevový kupon
+94    NE    Dmitry Rastvorov   Mimo EU   03/23/2000      Student
+95    NE    Dmitry Rastvorov   Mimo EU   03/23/2000     Důchodce
+96    NE    Dmitry Rastvorov   Mimo EU   03/23/2000   Slevový kupon
+97    NE    Dmitry Rastvorov   Mimo EU   2003-04-22      Student
+98    NE    Dmitry Rastvorov   Mimo EU   2003-04-22     Důchodce
+99    NE    Dmitry Rastvorov   Mimo EU   2003-04-22   Slevový kupon
+100   NE    Dmitry Rastvorov    V EU     25.09.2001      Student
+101   NE    Dmitry Rastvorov    V EU     25.09.2001     Důchodce
+102   NE    Dmitry Rastvorov    V EU     25.09.2001   Slevový kupon
+103   NE    Dmitry Rastvorov    V EU     03/23/2000      Student
+104   NE    Dmitry Rastvorov    V EU     03/23/2000     Důchodce
+105   NE    Dmitry Rastvorov    V EU     03/23/2000   Slevový kupon
+106   NE    Dmitry Rastvorov    V EU     2003-04-22      Student
+107   NE    Dmitry Rastvorov    V EU     2003-04-22     Důchodce
+108   NE    Dmitry Rastvorov    V EU     2003-04-22   Slevový kupon
+109   NE         NULL           V EU     25.09.2001      Student
+110   NE         NULL           V EU     25.09.2001     Důchodce
+111   NE         NULL           V EU     25.09.2001   Slevový kupon
+112   NE         NULL           V EU     03/23/2000      Student
+113   NE         NULL           V EU     03/23/2000     Důchodce
+114   NE         NULL           V EU     03/23/2000   Slevový kupon
+115   NE         NULL           V EU     2003-04-22      Student
+116   NE         NULL           V EU     2003-04-22     Důchodce
+117   NE         NULL           V EU     2003-04-22   Slevový kupon
+118   NE         NULL          Mimo EU   25.09.2001      Student
+119   NE         NULL          Mimo EU   25.09.2001     Důchodce
+120   NE         NULL          Mimo EU   25.09.2001   Slevový kupon
+121   NE         NULL          Mimo EU   03/23/2000      Student
+122   NE         NULL          Mimo EU   03/23/2000     Důchodce
+123   NE         NULL          Mimo EU   03/23/2000   Slevový kupon
+124   NE         NULL          Mimo EU   2003-04-22      Student
+125   NE         NULL          Mimo EU   2003-04-22     Důchodce
+126   NE         NULL          Mimo EU   2003-04-22   Slevový kupon
+127   NE         NULL           V EU     25.09.2001      Student
+128   NE         NULL           V EU     25.09.2001     Důchodce
+129   NE         NULL           V EU     25.09.2001   Slevový kupon
+130   NE         NULL           V EU     03/23/2000      Student
+131   NE         NULL           V EU     03/23/2000     Důchodce
+132   NE         NULL           V EU     03/23/2000
+                                                      Slevový kupon
+133   NE        NULL            V EU     2003-04-22      Student
+134   NE        NULL            V EU     2003-04-22     Důchodce
+135   NE        NULL            V EU     2003-04-22   Slevový kupon
+136   NE     J1R¡ S@nsøn        V EU     25.09.2001      Student
+137   NE     J1R¡ S@nsøn        V EU     25.09.2001     Důchodce
+138    NE    J1R¡ S@nsøn        V EU     25.09.2001   Slevový kupon
+139    NE    J1R¡ S@nsøn        V EU     03/23/2000      Student
+140    NE    J1R¡ S@nsøn        V EU     03/23/2000     Důchodce
+141    NE    J1R¡ S@nsøn        V EU     03/23/2000   Slevový kupon
+142    NE    J1R¡ S@nsøn        V EU     2003-04-22      Student
+143    NE    J1R¡ S@nsøn        V EU     2003-04-22     Důchodce
+144    NE    J1R¡ S@nsøn        V EU     2003-04-22   Slevový kupon
+145    NE    J1R¡ S@nsøn       Mimo EU   25.09.2001      Student
+146    NE    J1R¡ S@nsøn       Mimo EU   25.09.2001     Důchodce
+147    NE    J1R¡ S@nsøn       Mimo EU   25.09.2001   Slevový kupon
+148    NE    J1R¡ S@nsøn       Mimo EU   03/23/2000      Student
+149    NE    J1R¡ S@nsøn       Mimo EU   03/23/2000     Důchodce
+150    NE    J1R¡ S@nsøn       Mimo EU   03/23/2000   Slevový kupon
+151    NE    J1R¡ S@nsøn       Mimo EU   2003-04-22      Student
+152    NE    J1R¡ S@nsøn       Mimo EU   2003-04-22     Důchodce
+153    NE    J1R¡ S@nsøn       Mimo EU   2003-04-22   Slevový kupon
+154    NE    J1R¡ S@nsøn        V EU     25.09.2001      Student
+155    NE    J1R¡ S@nsøn        V EU     25.09.2001     Důchodce
+156    NE    J1R¡ S@nsøn        V EU     25.09.2001   Slevový kupon
+157    NE    J1R¡ S@nsøn        V EU     03/23/2000      Student
+158    NE    J1R¡ S@nsøn        V EU     03/23/2000     Důchodce
+159    NE    J1R¡ S@nsøn        V EU     03/23/2000   Slevový kupon
+160    NE    J1R¡ S@nsøn        V EU     2003-04-22      Student
+161    NE    J1R¡ S@nsøn        V EU     2003-04-22     Důchodce
+162    NE    J1R¡ S@nsøn        V EU     2003-04-22   Slevový kupon
+163   ANO   Dmitry Rastvorov    V EU     25.09.2001      Student
+164   ANO   Dmitry Rastvorov    V EU     25.09.2001     Důchodce
+165   ANO   Dmitry Rastvorov    V EU     25.09.2001   Slevový kupon
+166   ANO   Dmitry Rastvorov    V EU     03/23/2000      Student
+167   ANO   Dmitry Rastvorov    V EU     03/23/2000     Důchodce
+168   ANO   Dmitry Rastvorov    V EU     03/23/2000   Slevový kupon
+169   ANO   Dmitry Rastvorov    V EU     2003-04-22      Student
+170   ANO   Dmitry Rastvorov    V EU     2003-04-22     Důchodce
+171   ANO   Dmitry Rastvorov    V EU     2003-04-22   Slevový kupon
+172   ANO   Dmitry Rastvorov   Mimo EU   25.09.2001      Student
+173   ANO   Dmitry Rastvorov   Mimo EU   25.09.2001     Důchodce
+174   ANO   Dmitry Rastvorov   Mimo EU   25.09.2001   Slevový kupon
+175   ANO   Dmitry Rastvorov   Mimo EU   03/23/2000      Student
+176   ANO   Dmitry Rastvorov   Mimo EU   03/23/2000     Důchodce
+177   ANO   Dmitry Rastvorov   Mimo EU   03/23/2000   Slevový kupon
+178   ANO   Dmitry Rastvorov   Mimo EU   2003-04-22      Student
+179   ANO   Dmitry Rastvorov   Mimo EU   2003-04-22     Důchodce
+180   ANO   Dmitry Rastvorov   Mimo EU   2003-04-22   Slevový kupon
+181   ANO   Dmitry Rastvorov    V EU     25.09.2001      Student
+182   ANO   Dmitry Rastvorov    V EU     25.09.2001     Důchodce
+183   ANO   Dmitry Rastvorov    V EU     25.09.2001   Slevový kupon
+184   ANO   Dmitry Rastvorov    V EU     03/23/2000      Student
+185   ANO   Dmitry Rastvorov    V EU     03/23/2000     Důchodce
+186   ANO   Dmitry Rastvorov    V EU     03/23/2000   Slevový kupon
+187   ANO   Dmitry Rastvorov    V EU     2003-04-22      Student
+188   ANO   Dmitry Rastvorov    V EU     2003-04-22     Důchodce
+189   ANO   Dmitry Rastvorov    V EU     2003-04-22   Slevový kupon
+190   ANO        NULL           V EU     25.09.2001      Student
+191   ANO        NULL           V EU     25.09.2001     Důchodce
+192   ANO        NULL           V EU     25.09.2001   Slevový kupon
+193   ANO        NULL           V EU     03/23/2000      Student
+194   ANO        NULL           V EU     03/23/2000     Důchodce
+195   ANO        NULL           V EU     03/23/2000   Slevový kupon
+196   ANO        NULL           V EU     2003-04-22      Student
+197   ANO        NULL           V EU     2003-04-22     Důchodce
+198   ANO        NULL           V EU     2003-04-22   Slevový kupon
+199   ANO        NULL          Mimo EU   25.09.2001      Student
+200   ANO        NULL          Mimo EU   25.09.2001     Důchodce
+201   ANO        NULL          Mimo EU   25.09.2001   Slevový kupon
+202   ANO        NULL          Mimo EU   03/23/2000      Student
+203   ANO        NULL          Mimo EU   03/23/2000     Důchodce
+204   ANO        NULL          Mimo EU   03/23/2000   Slevový kupon
+205   ANO        NULL          Mimo EU   2003-04-22      Student
+206   ANO        NULL          Mimo EU   2003-04-22     Důchodce
+207   ANO      NULL       Mimo EU   2003-04-22   Slevový kupon
+208   ANO      NULL        V EU     25.09.2001      Student
+209   ANO      NULL        V EU     25.09.2001     Důchodce
+210   ANO      NULL        V EU     25.09.2001   Slevový kupon
+211   ANO      NULL        V EU     03/23/2000      Student
+212   ANO      NULL        V EU     03/23/2000     Důchodce
+213   ANO      NULL        V EU     03/23/2000   Slevový kupon
+214   ANO      NULL        V EU     2003-04-22      Student
+215   ANO      NULL        V EU     2003-04-22     Důchodce
+216   ANO      NULL        V EU     2003-04-22   Slevový kupon
+217   ANO   J1R¡ S@nsøn    V EU     25.09.2001      Student
+218   ANO   J1R¡ S@nsøn    V EU     25.09.2001     Důchodce
+219   ANO   J1R¡ S@nsøn    V EU     25.09.2001   Slevový kupon
+220   ANO   J1R¡ S@nsøn    V EU     03/23/2000      Student
+221   ANO   J1R¡ S@nsøn    V EU     03/23/2000     Důchodce
+222   ANO   J1R¡ S@nsøn    V EU     03/23/2000   Slevový kupon
+                                    2003-04-22
+223   ANO   J1R¡ S@nsøn    V EU                     Student
+224   ANO   J1R¡ S@nsøn    V EU     2003-04-22     Důchodce
+225   ANO   J1R¡ S@nsøn    V EU     2003-04-22   Slevový kupon
+226   ANO   J1R¡ S@nsøn   Mimo EU   25.09.2001      Student
+227   ANO   J1R¡ S@nsøn   Mimo EU   25.09.2001     Důchodce
+228   ANO   J1R¡ S@nsøn   Mimo EU   25.09.2001   Slevový kupon
+229   ANO   J1R¡ S@nsøn   Mimo EU   03/23/2000      Student
+230   ANO   J1R¡ S@nsøn   Mimo EU   03/23/2000     Důchodce
+231   ANO   J1R¡ S@nsøn   Mimo EU   03/23/2000   Slevový kupon
+232   ANO   J1R¡ S@nsøn   Mimo EU   2003-04-22      Student
+233   ANO   J1R¡ S@nsøn   Mimo EU   2003-04-22     Důchodce
+234   ANO   J1R¡ S@nsøn   Mimo EU   2003-04-22   Slevový kupon
+235   ANO   J1R¡ S@nsøn    V EU     25.09.2001      Student
+236   ANO   J1R¡ S@nsøn    V EU     25.09.2001     Důchodce
+237   ANO   J1R¡ S@nsøn    V EU     25.09.2001   Slevový kupon
+238   ANO   J1R¡ S@nsøn    V EU     03/23/2000      Student
+239   ANO   J1R¡ S@nsøn    V EU     03/23/2000     Důchodce
+240   ANO   J1R¡ S@nsøn    V EU     03/23/2000   Slevový kupon
+241   ANO   J1R¡ S@nsøn    V EU     2003-04-22      Student
+242   ANO   J1R¡ S@nsøn    V EU     2003-04-22     Důchodce
+243   ANO   J1R¡ S@nsøn    V EU     2003-04-22   Slevový kupon

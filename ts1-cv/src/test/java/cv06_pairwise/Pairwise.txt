@@ -1,0 +1,14 @@
+                                                   Datum
+     Registrace   Jméno/Příjmení     Destinace    narození        Sleva
+ 1     ANO             NULL          Mimo EU     03/23/2000     Důchodce
+ 2     ANO         J1R¡ S@nsøn         V EU      2003-04-22   Slevový kupon
+ 3      NE             NULL            V EU      25.09.2001      Student
+ 4      NE         J1R¡ S@nsøn         V EU      25.09.2001     Důchodce
+ 5      NE        Dmitry Rastvorov     V EU      03/23/2000   Slevový kupon
+ 6      NE        Dmitry Rastvorov   Mimo EU     2003-04-22      Student
+ 7     ANO         J1R¡ S@nsøn         V EU      2003-04-22      Student
+ 8     ANO        Dmitry Rastvorov   Mimo EU     25.09.2001     Důchodce
+ 9     ANO        Dmitry Rastvorov     V EU      03/23/2000      Student
+10     ANO        Dmitry Rastvorov     V EU      2003-04-22     Důchodce
+11     ANO             NULL            V EU      25.09.2001   Slevový kupon
+12     ANO         J1R¡ S@nsøn       Mimo EU     25.09.2001      Student
