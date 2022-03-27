@@ -68,7 +68,7 @@
 66     ANO         J1R¡ S@nsøn       Mimo EU     25.09.2001   Slevový kupon
 67     ANO         J1R¡ S@nsøn       Mimo EU     03/23/2000      Student
 68     ANO         J1R¡ S@nsøn       Mimo EU     03/23/2000     Důchodce
-69    ANO    J1R¡ S@nsøn       Mimo EU   03/23/2000   Slevový kupon
+69    ANO    J1R¡ S@nsøn       Mimo EU   03/23/2000   Slevový kupon
 70    ANO    J1R¡ S@nsøn       Mimo EU   2003-04-22      Student
 71    ANO    J1R¡ S@nsøn       Mimo EU   2003-04-22     Důchodce
 72    ANO    J1R¡ S@nsøn       Mimo EU   2003-04-22   Slevový kupon
@@ -138,7 +138,7 @@
 135   NE        NULL            V EU     2003-04-22   Slevový kupon
 136   NE     J1R¡ S@nsøn        V EU     25.09.2001      Student
 137   NE     J1R¡ S@nsøn        V EU     25.09.2001     Důchodce
-138    NE    J1R¡ S@nsøn        V EU     25.09.2001   Slevový kupon
+138    NE    J1R¡ S@nsøn        V EU     25.09.2001   Slevový kupon
 139    NE    J1R¡ S@nsøn        V EU     03/23/2000      Student
 140    NE    J1R¡ S@nsøn        V EU     03/23/2000     Důchodce
 141    NE    J1R¡ S@nsøn        V EU     03/23/2000   Slevový kupon
@@ -207,7 +207,7 @@
 204   ANO        NULL          Mimo EU   03/23/2000   Slevový kupon
 205   ANO        NULL          Mimo EU   2003-04-22      Student
 206   ANO        NULL          Mimo EU   2003-04-22     Důchodce
-207   ANO      NULL       Mimo EU   2003-04-22   Slevový kupon
+207   ANO      NULL       Mimo EU   2003-04-22   Slevový kupon
 208   ANO      NULL        V EU     25.09.2001      Student
 209   ANO      NULL        V EU     25.09.2001     Důchodce
 210   ANO      NULL        V EU     25.09.2001   Slevový kupon
