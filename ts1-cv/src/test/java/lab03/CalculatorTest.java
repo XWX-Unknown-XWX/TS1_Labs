@@ -2,6 +2,8 @@ package lab03;
 
 import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CalculatorTest {
     Calculator calculator = new Calculator();
 
@@ -16,46 +18,46 @@ public class CalculatorTest {
     @Order(2)
     @DisplayName("Testing adding numbers")
     public void addTest_Nine_AddTwoNum() {
-        Assertions.assertEquals(9, calculator.add(4, 5), "Checking adding between two num");
+        assertEquals(9, calculator.add(4, 5), "Checking adding between two num");
     }
 
     @Test
     @Order(3)
     @DisplayName("Testing subtracting numbers")
     public void subtractTest_MinusTwoNum() {
-        Assertions.assertEquals(2, calculator.subtract(6, 4), "Checking subtraction between two num");
+        assertEquals(2, calculator.subtract(6, 4), "Checking subtraction between two num");
     }
 
     @Test
     @Order(4)
     @DisplayName("Testing multiplying numbers")
     public void multiplyTest_MultiplyTwoNum() {
-        Assertions.assertEquals(25, calculator.multiply(5, 5), "Checking multiply between two num");
+        assertEquals(25, calculator.multiply(5, 5), "Checking multiply between two num");
     }
 
     @Test
     @Order(5)
     @DisplayName("Testing dividing numbers")
     public void divideTest_DivideTwoNum() {
-        Assertions.assertEquals(2, calculator.divide(8, 4), "Checking dividing between two num");
-        Assertions.assertEquals(0, calculator.divide(0, 4), "Checking dividing by zero num");
+        assertEquals(2, calculator.divide(8, 4), "Checking dividing between two num");
+        assertEquals(0, calculator.divide(0, 4), "Checking dividing by zero num");
     }
 
     @Test
     @Order(6)
     @DisplayName("Testing with zero")
     public void zeroChecking_ZeroNum_Multiply() {
-        Assertions.assertEquals(0, calculator.multiply(0, 100), "Testing for checking zero num");
+        assertEquals(0, calculator.multiply(0, 100), "Testing for checking zero num");
     }
 
     @Test
     @Order(7)
     @DisplayName("Testing with neg number")
     public void testingAll_negativeNumbers() {
-        Assertions.assertEquals(-1, calculator.add(-20, 19));
-        Assertions.assertEquals(-1, calculator.multiply(-1, 1));
-        Assertions.assertEquals(-1, calculator.divide(-3, 3));
-        Assertions.assertEquals(-3, calculator.subtract(5, 8));
+        assertEquals(-1, calculator.add(-20, 19));
+        assertEquals(-1, calculator.multiply(-1, 1));
+        assertEquals(-1, calculator.divide(-3, 3));
+        assertEquals(-3, calculator.subtract(5, 8));
     }
 
     @Test
@@ -63,14 +65,12 @@ public class CalculatorTest {
     @DisplayName("Testing adding disable exception")
     @Disabled("Adding exception should be fixed and been enabled")
     public void testingForExceptionAdd() {
-        Assertions.assertEquals(10, calculator.add(10, 20));
+        assertEquals(10, calculator.add(10, 20));
     }
 
     @Test
-    @Order(9)
-    @DisplayName("Testing dividing zero exception")
-    @Disabled("Dividing exception should be fixed and been enabled")
+    @DisplayName("Testing dividing by zero exception")
     public void testingDivideByZeroNum() {
-        Assertions.assertEquals(13, calculator.divide(13, 0));
+        assertThrows(ArithmeticException.class, () -> calculator.divide(1, 0), "Dividing by zero exception");
     }
 }
