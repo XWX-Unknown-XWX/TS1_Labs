@@ -45,13 +45,20 @@ public class CalculatorTest {
 
     @Test
     @Order(6)
+    @DisplayName("Testing dividing by zero exception")
+    public void testingDivideByZeroNum() {
+        assertThrows(ArithmeticException.class, () -> calculator.divide(1, 0), "Dividing by zero exception");
+    }
+
+    @Test
+    @Order(7)
     @DisplayName("Testing with zero")
     public void zeroChecking_ZeroNum_Multiply() {
         assertEquals(0, calculator.multiply(0, 100), "Testing for checking zero num");
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     @DisplayName("Testing with neg number")
     public void testingAll_negativeNumbers() {
         assertEquals(-1, calculator.add(-20, 19));
@@ -61,16 +68,10 @@ public class CalculatorTest {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
     @DisplayName("Testing adding disable exception")
     @Disabled("Adding exception should be fixed and been enabled")
     public void testingForExceptionAdd() {
         assertEquals(10, calculator.add(10, 20));
-    }
-
-    @Test
-    @DisplayName("Testing dividing by zero exception")
-    public void testingDivideByZeroNum() {
-        assertThrows(ArithmeticException.class, () -> calculator.divide(1, 0), "Dividing by zero exception");
     }
 }
