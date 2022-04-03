@@ -38,6 +38,7 @@ public class CalculatorTest {
     @DisplayName("Testing dividing numbers")
     public void divideTest_DivideTwoNum() {
         Assertions.assertEquals(2, calculator.divide(8, 4), "Checking dividing between two num");
+        Assertions.assertEquals(0, calculator.divide(0, 4), "Checking dividing by zero num");
     }
 
     @Test
@@ -60,8 +61,16 @@ public class CalculatorTest {
     @Test
     @Order(8)
     @DisplayName("Testing adding disable exception")
-    @Disabled("Adding should be fixed and been enabled")
-    public void testingForException() {
+    @Disabled("Adding exception should be fixed and been enabled")
+    public void testingForExceptionAdd() {
         Assertions.assertEquals(10, calculator.add(10, 20));
+    }
+
+    @Test
+    @Order(9)
+    @DisplayName("Testing dividing zero exception")
+    @Disabled("Dividing exception should be fixed and been enabled")
+    public void testingDivideByZeroNum() {
+        Assertions.assertEquals(13, calculator.divide(13, 0));
     }
 }
