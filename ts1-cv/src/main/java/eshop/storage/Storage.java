@@ -26,12 +26,13 @@ public class Storage {
     /**
      * Prints list of items in the storage to the standard output
      */
-    public void printListOfStoredItems() {
+    public String printListOfStoredItems() {
         Collection<ItemStock> entries = getStockEntries();
         System.out.println("STORAGE IS CURRENTLY CONTAINING:");
         for (ItemStock e : entries) {
             System.out.println(e.toString());
         }
+        return "Done";
     }
 
     
@@ -39,13 +40,15 @@ public class Storage {
      * Insert N pieces of item to the storage
      * @param item  item to insert
      * @param count  N - count of inserted item
+     * @return
      */
-    public void insertItems(Item item, int count) {
+    public int insertItems(Item item, int count) {
         if (!stock.containsKey(item.getID())) {
             stock.put(item.getID(), new ItemStock(item));
         }
         ItemStock e = stock.get(item.getID());
         e.IncreaseItemCount(count);
+        return count;
     }
 
     

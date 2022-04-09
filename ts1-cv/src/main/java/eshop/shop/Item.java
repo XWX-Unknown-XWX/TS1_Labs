@@ -7,7 +7,7 @@ package eshop.shop;
  */
 
 
-public abstract class Item {
+public class Item {
     private int id;
     private String name;
     private float price;

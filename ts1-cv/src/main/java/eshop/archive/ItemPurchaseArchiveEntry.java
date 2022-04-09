@@ -15,7 +15,7 @@ public class ItemPurchaseArchiveEntry {
         soldCount += x;
     }
     
-    int getCountHowManyTimesHasBeenSold() {
+    public int getCountHowManyTimesHasBeenSold() {
         return soldCount;
     }
     

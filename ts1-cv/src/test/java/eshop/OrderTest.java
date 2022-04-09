@@ -8,44 +8,98 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class OrderTest {
-    Order order;
     ShoppingCart cart = new ShoppingCart();
-
-    String customerName;
-    String customerAddress;
-    int state;
+    // variables for the first class
+    public String customerName1 = "Petr";
+    public String customerAddress1 = "Prague 1";
+    public int state = 1;
+    Order orderFirst = new Order(cart, customerName1, customerAddress1, state);
+    // variables for the second class
+    public String customerName2 = "Jiri";
+    public String customerAddress2 = "Prague 2";
+    Order orderSecond = new Order(cart, customerName2, customerAddress2);
 
     @Test
-    @DisplayName("Controlling first constructor of Order class")
-    public void FirstOrderIsNotNull_controllingConstructorTest() {
-        customerName = "Petr";
-        customerAddress = "Prague 1";
-        state = 1;
-
-        order = new Order(cart, customerName, customerAddress, state);
-        assertEquals(cart.getCartItems(), order.getItems());
-        assertEquals(customerAddress, order.getCustomerAddress());
-        assertEquals(customerName, order.getCustomerName());
-        assertEquals(state, order.getState());
-        // Checking if objects are not NULL (or variable is not 0)
-        assertNotNull(order.getItems());
-        assertNotNull(order.getCustomerName());
-        assertNotNull(order.getCustomerAddress());
-        assertNotNull(order);
+    @DisplayName("Controlling first Constructor Class Cart Item")
+    public void orderFirstClass_testing_cartItem() {
+        assertEquals(cart.getCartItems(), orderFirst.getItems());
     }
 
     @Test
-    @DisplayName("Controlling second constructor of Order class")
-    public void SecondOrderIsNull_controllingConstructorTest() {
-        customerName = "Jiri";
-        customerAddress = "Prague 2";
+    @DisplayName("Controlling first Constructor Class Address")
+    public void orderFirstClass_testing_address() {
+        assertEquals(customerAddress1, orderFirst.getCustomerAddress());
+    }
 
-        order = new Order(cart, customerName, customerAddress);
-        assertEquals(cart.getCartItems(), order.getItems());
-        assertEquals(customerName, order.getCustomerName());
-        assertEquals(customerAddress, order.getCustomerAddress());
+    @Test
+    @DisplayName("Controlling first Constructor Class Customer Name")
+    public void orderFirstClass_testing_customerName() {
+        assertEquals(customerName1, orderFirst.getCustomerName());
+    }
 
-        assertNotNull(order.getCustomerName());
-        assertNotNull(order.getCustomerAddress());
+    @Test
+    @DisplayName("Controlling first Constructor Class State")
+    public void orderFirstClass_testing_state() {
+        assertEquals(state, orderFirst.getState());
+    }
+
+    @Test
+    @DisplayName("Controlling first Constructor Class Items are not NULL")
+    public void orderFirstClass_testing_items_notNull() {
+        assertNotNull(orderFirst.getItems());
+    }
+
+    @Test
+    @DisplayName("Controlling first Constructor Class Items are not NULL")
+    public void orderFirstClass_testing_name_notNull() {
+        assertNotNull(orderFirst.getCustomerName());
+    }
+
+    @Test
+    @DisplayName("Controlling first Constructor Class Customer Address are not NULL")
+    public void orderFirstClass_testing_customerAddress_notNull() {
+        assertNotNull(orderFirst.getCustomerAddress());
+    }
+
+    @Test
+    @DisplayName("Controlling first Constructor Class Items are not NULL")
+    public void orderFirstClass_testing_firstOrderClass_notNull() {
+        assertNotNull(orderFirst);
+    }
+
+    @Test
+    @DisplayName("Controlling second Constructor Class Cart Item")
+    public void orderSecondClass_testing_cartItem() {
+        assertEquals(cart.getCartItems(), orderSecond.getItems());
+    }
+
+    @Test
+    @DisplayName("Controlling second Constructor Class Cart Item")
+    public void orderSecondClass_testing_customerName() {
+        assertEquals(customerName2, orderSecond.getCustomerName());
+    }
+
+    @Test
+    @DisplayName("Controlling second Constructor Class Cart Item")
+    public void orderSecondClass_testing_customerAddress() {
+        assertEquals(customerAddress2, orderSecond.getCustomerAddress());
+    }
+
+    @Test
+    @DisplayName("Controlling second Constructor not equals state")
+    public void orderSecondClass_testing_stateNotExists() {
+        assertNotEquals(state, orderSecond.getState());
+    }
+
+    @Test
+    @DisplayName("Controlling second Constructor Class Cart Item")
+    public void orderSecondClass_testing_customerName_notNull() {
+        assertNotNull(orderSecond.getCustomerName());
+    }
+
+    @Test
+    @DisplayName("Controlling second Constructor Class Cart Item")
+    public void orderSecondClass_testing_customerAddress_notNull() {
+        assertNotNull(orderSecond.getCustomerAddress());
     }
 }

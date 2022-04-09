@@ -8,38 +8,54 @@ import java.util.ArrayList;
 
 
 public class EShopController {
+    public static Storage storage;
 
-    static Storage storage;
+    public ShoppingCart getNewCart() {
+        return newCart;
+    }
+
+    public void setNewCart(ShoppingCart newCart) {
+        this.newCart = newCart;
+    }
+
+    public ShoppingCart newCart = new ShoppingCart();
+    private static final boolean result = true;
     private static PurchasesArchive archive;
+
     private static ArrayList<ShoppingCart> carts;
     private static ArrayList<Order> orders;
+    private static String statistics;
+
 
     public EShopController() {
     }
 
-
-    public void purchaseShoppingCart(ShoppingCart cart, String customerName, String customerAddress) throws NoItemInStorage {
-        if (cart.getCartItems().isEmpty()) {
-            System.out.println("Error: shopping cart is empty");
-        }
-        Order order = new Order(cart, customerName, customerAddress);
-        storage.processOrder(order);
-        archive.putOrderToPurchasesArchive(order);
-    }
-
     public ShoppingCart newCart() {
-        ShoppingCart newCart = new ShoppingCart();
-        carts.add(newCart);
+        setNewCart(newCart);
+        carts.add(getNewCart());
         return newCart;
     }
 
-    public static void startEShop() {
+    public boolean purchaseShoppingCart(ShoppingCart cart, String customerName, String customerAddress) throws NoItemInStorage {
+        if (cart.getCartItems().isEmpty()) {
+            System.out.println("Error: shopping cart is empty");
+            return false;
+        }
+        Order order = new Order(cart, customerName, customerAddress);
+        storage.processOrder(order);
+        archive.putOrderToPurchasesArchive(order, result);
+        return true;
+    }
+
+    public static String startEShop() {
         if (storage == null) {
             storage = new Storage();
             archive = new PurchasesArchive();
             carts = new ArrayList();
             orders = new ArrayList();
+            return "Storage is ready.";
         }
+        return "Storage is not null.";
     }
 
 
@@ -78,7 +94,7 @@ public class EShopController {
         newCart.addItem(storageItems[4]);
         newCart.addItem(storageItems[5]);
         purchaseShoppingCart(newCart, "Libuse Novakova", "Kosmonautu 25, Praha 8");
-        archive.printItemPurchaseStatistics();
+        archive.printItemPurchaseStatistics(statistics);
         storage.printListOfStoredItems();
 
 
@@ -89,8 +105,6 @@ public class EShopController {
 
         ShoppingCart newEmptyCart = new ShoppingCart();
         purchaseShoppingCart(newEmptyCart, "Jarmila Novakova", "Spojovaci 23, Praha 3");
-
-
     }
 
 

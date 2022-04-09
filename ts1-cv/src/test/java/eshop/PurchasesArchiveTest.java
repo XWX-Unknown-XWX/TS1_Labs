@@ -6,76 +6,121 @@ import eshop.shop.Item;
 import eshop.shop.Order;
 import eshop.shop.ShoppingCart;
 import eshop.shop.StandardItem;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 
 public class PurchasesArchiveTest {
 
-    PurchasesArchive purchasesArchive;
-
     // For orderArchive test
+    Order order;
     ShoppingCart cart = new ShoppingCart();
     String customerName = "Filip";
     String customerAddress = "Prague 10";
 
     // For ItemPurchaseArchiveEntry test
-    int id = 23032011;
-    String name = "Hero";
-    float price = 33212;
-    String category = "IDE";
-    int loyaltyPoints = 90;
+    Item item;
+    PurchasesArchive purchasesArchive = Mockito.mock(PurchasesArchive.class);
+    public String name = "Hero";
+    public String category = "IDE";
+    public int id = 23032011;
+    public int loyaltyPoints = 90;
+    public float price = 33212;
 
-    @Test // FIXME: 25.03.2022 DON'T UNDERSTAND HOW TO IMPLEMENT
-    @Disabled
-    @DisplayName("Testing printItemPurchaseStatistics")
-    public void PrintItemPurchaseStatisticsTest() {
-        // code should be here
+    // For OutputStream test
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    private final PrintStream originalErr = System.err;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+        System.setErr(new PrintStream(errContent));
     }
 
-    @Test // FIXME: 25.03.2022 DON'T UNDERSTAND HOW TO IMPLEMENT
-    @Disabled
-    @DisplayName("Testing getHowManyTimesHasBeenItemSold")
-    public void GetHowManyTimesHasBeenItemSoldTest() {
-        // code should be here
-    }
-
-    @Test // FIXME: 25.03.2022 DON'T UNDERSTAND HOW TO IMPLEMENT
-    @Disabled
-    @DisplayName("Testing putOrderToPurchasesArchive")
-    public void PutOrderToPurchasesArchiveTest() {
-        // code should be here
-    }
-
-    @Test // FIXME: 25.03.2022 DON'T UNDERSTAND HOW TO IMPLEMENT
-    @Disabled
-    @DisplayName("Testing println(stream)")
-    public void PrintlnStreamTest() {
-        // code should be here
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+        System.setErr(originalErr);
     }
 
     @Test
-    @DisplayName("Testing orderArchive with mock")
-    public void OrderArchive_mockitoTest() {
-        ArrayList<Order> mockArchiveOrder = new ArrayList<>();
-        ArrayList<Order> mockOnArchive = spy(mockArchiveOrder);
-        when(mockOnArchive.size()).thenReturn(0);
-        assertEquals(0, mockArchiveOrder.size());
+    @DisplayName("Testing printItemPurchaseStatistics correct output")
+    public void printOutput_printItemPurchaseStatistics() throws NullPointerException {
+        PurchasesArchive purchasesArchiveNotMock = new PurchasesArchive();
+        System.out.print(purchasesArchiveNotMock.printItemPurchaseStatistics("DONE!"));
+        assertEquals(purchasesArchiveNotMock.printItemPurchaseStatistics("DONE!"), outContent.toString());
     }
+
+    @BeforeEach
+    @DisplayName("Setting @BeforeEach for item")
+    public void setItem() {
+        item = new Item(id, name, price, category);
+    }
+
+    @Test
+    @DisplayName("Testing getHowManyTimesHasBeenItemSold method")
+    public void getHowManyTimesHasBeenItemSold_testing() {
+        assertEquals(purchasesArchive.getHowManyTimesHasBeenItemSold(item), 0);
+        verify(purchasesArchive).getHowManyTimesHasBeenItemSold(item);
+    }
+
+    @BeforeEach
+    @DisplayName("Setting @BeforeEach for order")
+    public void setOrder() {
+        order = new Order(cart, customerName, customerAddress);
+    }
+
+    @Test
+    @DisplayName("Testing putOrderToPurchasesArchive method with new println(stream)")
+    public void putOrderToPurchasesArchive_testing() {
+        purchasesArchive.setTrue(true);
+        boolean isTrue = purchasesArchive.getIsTrue();
+        assertFalse(purchasesArchive.putOrderToPurchasesArchive(order, isTrue));
+        verify(purchasesArchive).putOrderToPurchasesArchive(order, isTrue);
+    }
+
+    @Mock
+    private ArrayList<Order> mockedOrderArchive;
+
+    @Test
+    @DisplayName("Testing PurchaseArchive constructor orderArchive")
+    public void purchaseArchive_testing_constructorFirstParam() {
+        purchasesArchive.setOrderArchive(mockedOrderArchive);
+        assertNotNull(purchasesArchive.getOrderArchive());
+        verify(purchasesArchive).getOrderArchive();
+    }
+
+    @Mock
+    private HashMap<Integer, ItemPurchaseArchiveEntry> mockedItemPurchaseArchive;
+
+    @Test
+    @DisplayName("Testing PurchaseArchive constructor itemArchive")
+    public void purchaseArchive_testing_constructorSecondParam() {
+        purchasesArchive.setItemPurchaseArchive(mockedItemPurchaseArchive);
+        assertNotNull(purchasesArchive.getItemPurchaseArchive());
+        verify(purchasesArchive).getItemPurchaseArchive();
+    }
+
+    @Mock
+    private ItemPurchaseArchiveEntry mockedArchiveEntry;
 
     @Test
     @DisplayName("Testing ItemPurchaseArchiveEntry elements with mock")
     public void ItemPurchaseArchive_entryTest() {
-        ItemPurchaseArchiveEntry archiveEntry = Mockito.mock(ItemPurchaseArchiveEntry.class);
-        verify(archiveEntry);
+        purchasesArchive.setPurchaseArchiveEntry(mockedArchiveEntry);
+        assertNull(purchasesArchive.getPurchaseArchiveEntry());
+        verify(purchasesArchive).getPurchaseArchiveEntry();
     }
 
     @Test
