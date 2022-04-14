@@ -24,8 +24,8 @@ public class PurchasesArchiveTest {
     // For orderArchive test
     Order order;
     ShoppingCart cart = new ShoppingCart();
-    String customerName = "Filip";
-    String customerAddress = "Prague 10";
+    public String customerName = "Filip";
+    public String customerAddress = "Prague 10";
 
     // For ItemPurchaseArchiveEntry test
     Item item;
@@ -48,18 +48,18 @@ public class PurchasesArchiveTest {
         System.setErr(new PrintStream(errContent));
     }
 
-    @AfterEach
-    public void restoreStreams() {
-        System.setOut(originalOut);
-        System.setErr(originalErr);
-    }
-
     @Test
     @DisplayName("Testing printItemPurchaseStatistics correct output")
     public void printOutput_printItemPurchaseStatistics() throws NullPointerException {
         PurchasesArchive purchasesArchiveNotMock = new PurchasesArchive();
         System.out.print(purchasesArchiveNotMock.printItemPurchaseStatistics("DONE!"));
         assertEquals(purchasesArchiveNotMock.printItemPurchaseStatistics("DONE!"), outContent.toString());
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+        System.setErr(originalErr);
     }
 
     @BeforeEach
@@ -117,19 +117,18 @@ public class PurchasesArchiveTest {
 
     @Test
     @DisplayName("Testing ItemPurchaseArchiveEntry elements with mock")
-    public void ItemPurchaseArchive_entryTest() {
+    public void purchaseArchive_testing_ArchiveEntry() {
         purchasesArchive.setPurchaseArchiveEntry(mockedArchiveEntry);
         assertNull(purchasesArchive.getPurchaseArchiveEntry());
         verify(purchasesArchive).getPurchaseArchiveEntry();
     }
 
     @Test
-    @DisplayName("Testing constructor and ItemPurchaseArchiveEntry")
-    public void ItemPurchaseArchiveEntry_testingRightCall() {
+    @DisplayName("Testing PurchasesArchive constructor with mock")
+    public void purchaseArchiveEntry_testing_itemPurchaseArchive() {
         Item item = new StandardItem(id, name, price, category, loyaltyPoints);
         ItemPurchaseArchiveEntry itemPurchaseArchiveEntry = new ItemPurchaseArchiveEntry(item);
-        purchasesArchive = new PurchasesArchive();
         assertNotNull(purchasesArchive.getItemPurchaseArchive(), String.valueOf(itemPurchaseArchiveEntry));
-        assertNotNull(purchasesArchive);
+        verify(purchasesArchive).getItemPurchaseArchive();
     }
 }

@@ -9,6 +9,16 @@ import java.util.ArrayList;
 
 public class EShopController {
     public static Storage storage;
+    public ShoppingCart newCart = new ShoppingCart();
+    private static final boolean result = true;
+    private static PurchasesArchive archive;
+
+    private static ArrayList<ShoppingCart> carts;
+    private static ArrayList<Order> orders;
+    private static String statistics;
+
+    public EShopController() {
+    }
 
     public ShoppingCart getNewCart() {
         return newCart;
@@ -18,33 +28,19 @@ public class EShopController {
         this.newCart = newCart;
     }
 
-    public ShoppingCart newCart = new ShoppingCart();
-    private static final boolean result = true;
-    private static PurchasesArchive archive;
-
-    private static ArrayList<ShoppingCart> carts;
-    private static ArrayList<Order> orders;
-    private static String statistics;
-
-
-    public EShopController() {
-    }
-
     public ShoppingCart newCart() {
         setNewCart(newCart);
         carts.add(getNewCart());
         return newCart;
     }
 
-    public boolean purchaseShoppingCart(ShoppingCart cart, String customerName, String customerAddress) throws NoItemInStorage {
+    public static void purchaseShoppingCart(ShoppingCart cart, String customerName, String customerAddress) throws NoItemInStorage {
         if (cart.getCartItems().isEmpty()) {
             System.out.println("Error: shopping cart is empty");
-            return false;
         }
         Order order = new Order(cart, customerName, customerAddress);
         storage.processOrder(order);
         archive.putOrderToPurchasesArchive(order, result);
-        return true;
     }
 
     public static String startEShop() {
@@ -59,7 +55,7 @@ public class EShopController {
     }
 
 
-    public void main(String[] args) throws NoItemInStorage {
+    public static void main(String[] args) throws NoItemInStorage {
         EShopController.startEShop();
 
         /* make up an artificial data */
@@ -106,7 +102,4 @@ public class EShopController {
         ShoppingCart newEmptyCart = new ShoppingCart();
         purchaseShoppingCart(newEmptyCart, "Jarmila Novakova", "Spojovaci 23, Praha 3");
     }
-
-
 }
-

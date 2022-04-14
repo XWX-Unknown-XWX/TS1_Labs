@@ -11,6 +11,7 @@ public class SeleniumTests {
         // Optional. If not specified, WebDriver searches the PATH for chromedriver.
         System.setProperty("webdriver.chrome.driver", "/Users/dmitry1/Desktop/CVUT/4. semestr/TS1/Zdroje/ChromeDriver/chromedriver");
         WebDriver driver = new ChromeDriver();
+
         driver.get("http://www.google.com/");
         Thread.sleep(5000);  // Let the user actually see something!
         WebElement searchBox = driver.findElement(By.name("q"));

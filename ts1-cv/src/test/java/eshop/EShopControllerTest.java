@@ -3,11 +3,14 @@ package eshop;
 import eshop.shop.*;
 import eshop.storage.NoItemInStorage;
 import eshop.storage.Storage;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +30,12 @@ public class EShopControllerTest {
     public String category = "IDE";
     public int id = 25092001;
     public float price = 10032;
+
+    // For PurchaseArchive test
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    private final PrintStream originalErr = System.err;
 
     @Test
     @DisplayName("Testing Constructor is not null")
@@ -78,7 +87,6 @@ public class EShopControllerTest {
         assertEquals(shoppingCart.getItemsCount(), purchasedItem.size());
     }
 
-
     @Test
     @DisplayName("Testing item price")
     public void shoppingCart_testing_getItemPrice() {
@@ -86,23 +94,35 @@ public class EShopControllerTest {
         assertEquals(item.getPrice(), price);
     }
 
-
     @Test
-    @DisplayName("Testing no total price")
+    @DisplayName("Testing get total price")
     public void shoppingCart_testing_getTotalPrice() {
         int noPrice = 0;
         assertEquals(mockedShoppingCart.getTotalPrice(), noPrice);
         verify(mockedShoppingCart).getTotalPrice();
     }
 
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+        System.setErr(new PrintStream(errContent));
+    }
+
     @Test
     @DisplayName("Testing purchasing shopping cart is empty")
-    public void purchaseShoppingCart_testing_shoppingCartIsEmpty() throws NoItemInStorage {
-        purchasedItem.add(item);
-        shoppingCart.setCartItems(purchasedItem);
-        assertFalse(eShopController.purchaseShoppingCart(shoppingCart, customerName, customerAddress));
-        verify(eShopController).purchaseShoppingCart(shoppingCart, customerName, customerAddress);
+    public void purchaseShoppingCart_testing() throws NoItemInStorage {
+        String expectedOutput = "Error: shopping cart is empty";
+        EShopController.startEShop();
+        EShopController.purchaseShoppingCart(shoppingCart, customerName, customerAddress);
+        assertEquals(expectedOutput, outContent.toString().trim());
     }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+        System.setErr(originalErr);
+    }
+
     @BeforeEach
     @DisplayName("set @BeforeEach storage items")
     public void setStorage() {
@@ -131,6 +151,6 @@ public class EShopControllerTest {
     @Test
     @DisplayName("Testing startEshop storage preparation")
     public void startEshop_testing_implementation() {
-         assertEquals(EShopController.startEShop(), "Storage is ready.");
+        assertEquals(EShopController.startEShop(), "Storage is ready.");
     }
 }
