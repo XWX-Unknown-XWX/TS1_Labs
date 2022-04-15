@@ -17,7 +17,7 @@ public class StandardItem extends Item {
     }
 
     public String toString() {
-        return super.toString()+"   PRICE "+getPrice()+"   LOYALTY POINTS "+loyaltyPoints;
+        return super.toString() + "   PRICE " + getPrice() + "   LOYALTY POINTS " + loyaltyPoints;
     }
 
     public int getLoyaltyPoints() {

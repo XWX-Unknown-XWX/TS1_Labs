@@ -35,11 +35,12 @@ public class Storage {
         return "Done";
     }
 
-    
+
     /**
      * Insert N pieces of item to the storage
+     *
      * @param item  item to insert
-     * @param count  N - count of inserted item
+     * @param count N - count of inserted item
      * @return
      */
     public int insertItems(Item item, int count) {
@@ -51,13 +52,13 @@ public class Storage {
         return count;
     }
 
-    
-    
+
     /**
      * Removes N pieces of the item from the storage
-     * @param item   item to remove
-     * @param count   N - count of removed item
-     * @throws NoItemInStorage 
+     *
+     * @param item  item to remove
+     * @param count N - count of removed item
+     * @throws NoItemInStorage
      */
     public void removeItems(Item item, int count) throws NoItemInStorage {
         if (stock.containsKey(item.getID())) {
@@ -72,11 +73,12 @@ public class Storage {
         }
     }
 
-    
+
     /**
      * Decrease stock as a part of order processing
+     *
      * @param order Order to process
-     * @throws NoItemInStorage  Throw, if item from order is not in the storage 
+     * @throws NoItemInStorage Throw, if item from order is not in the storage
      */
     public void processOrder(Order order) throws NoItemInStorage {
         ArrayList<Item> items = order.getItems();
@@ -85,11 +87,12 @@ public class Storage {
         }
     }
 
-    
+
     /**
      * Get count of item in the storage
-     * @param item   item to query
-     * @return    count of the item in the storage
+     *
+     * @param item item to query
+     * @return count of the item in the storage
      */
     public int getItemCount(Item item) {
         if (stock.containsKey(item.getID())) {
@@ -98,12 +101,13 @@ public class Storage {
         }
         return 0;
     }
-    
-    
+
+
     /**
      * Get count of item in the storage
-     * @param id   ID of item to query
-     * @return    count of the item in the storage
+     *
+     * @param id ID of item to query
+     * @return count of the item in the storage
      */
     public int getItemCount(int id) {
         if (stock.containsKey(id)) {
@@ -113,9 +117,10 @@ public class Storage {
         return 0;
     }
 
-    
+
     /**
      * Gets total price of all items in the stock
+     *
      * @return price of whole stock
      */
     public int getPriceOfWholeStock() {
@@ -126,21 +131,21 @@ public class Storage {
         }
         return (int) totalPrice;
     }
-    
-    
+
+
     /**
      * Gets list of items of a particular category sorted by price
-     * @param category  category to filter
-     * @return   list of items of a particular category sorted by price
+     *
+     * @param category category to filter
+     * @return list of items of a particular category sorted by price
      */
     public Collection<Item> getItemsOfCategorySortedByPrice(String category) {
         ArrayList<Item> output = getItemsByCategory(category);
         this.sortItemsByPrice(output);
         return output;
     }
-    
-        
-    
+
+
     private ArrayList<Item> getItemsByCategory(String category) {
         ArrayList<Item> output = new ArrayList();
         Collection<ItemStock> s = stock.values();
@@ -160,14 +165,15 @@ public class Storage {
                 }
             }
             */
-            
-            if (tmp.getCategory().equals(category)) { output.add(tmp); }
+
+            if (tmp.getCategory().equals(category)) {
+                output.add(tmp);
+            }
         }
         return output;
     }
 
-    
-    
+
     // does this really work?
     private void sortItemsByPrice(ArrayList<Item> items) {
         boolean sortedFlag = false;
@@ -184,6 +190,6 @@ public class Storage {
             }
         }
     }
-    
-    
+
+
 }

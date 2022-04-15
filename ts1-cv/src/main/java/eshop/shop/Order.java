@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 /**
  * Order is created, when an user purchases the content of the shopping cart.
- * 
  */
 public class Order {
 
@@ -27,8 +26,8 @@ public class Order {
         this.customerAddress = customerAddress;
         this.state = 0;
     }
-    
-    
+
+
     public ArrayList<Item> getItems() {
         return items;
     }
@@ -45,7 +44,7 @@ public class Order {
         this.customerAddress = customerAddress;
     }
 
-    
+
     public String getCustomerName() {
         return customerName;
     }
@@ -53,8 +52,8 @@ public class Order {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-    
-    
+
+
     public int getState() {
         return state;
     }

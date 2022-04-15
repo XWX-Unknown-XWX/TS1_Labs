@@ -9,17 +9,17 @@ import eshop.shop.Item;
 public class ItemStock {
     private final Item refItem;
     private int count;
-    
+
     public ItemStock(Item refItem) {
         this.refItem = refItem;
         count = 0;
     }
-    
+
     @Override
     public String toString() {
-        return "STOCK OF ITEM:  "+refItem.toString()+"    PIECES IN STORAGE: "+count;
+        return "STOCK OF ITEM:  " + refItem.toString() + "    PIECES IN STORAGE: " + count;
     }
-    
+
     public int IncreaseItemCount(int x) {
         return count += x;
     }
@@ -31,7 +31,7 @@ public class ItemStock {
     public int getCount() {
         return count;
     }
-    
+
     Item getItem() {
         return refItem;
     }
