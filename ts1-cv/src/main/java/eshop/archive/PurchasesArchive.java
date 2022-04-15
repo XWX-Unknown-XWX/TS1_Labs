@@ -65,7 +65,7 @@ public class PurchasesArchive {
     public void printItemPurchaseStatistics() {
         Collection<ItemPurchaseArchiveEntry> itemEntries = itemPurchaseArchive.values();
         System.out.println("ITEM PURCHASE STATISTICS:");
-        for(ItemPurchaseArchiveEntry e : itemEntries) {
+        for (ItemPurchaseArchiveEntry e : itemEntries) {
             System.out.println(e.toString());
         }
     }
