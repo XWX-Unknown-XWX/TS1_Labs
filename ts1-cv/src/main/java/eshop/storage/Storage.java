@@ -26,13 +26,12 @@ public class Storage {
     /**
      * Prints list of items in the storage to the standard output
      */
-    public String printListOfStoredItems() {
+    public void printListOfStoredItems() {
         Collection<ItemStock> entries = getStockEntries();
         System.out.println("STORAGE IS CURRENTLY CONTAINING:");
         for (ItemStock e : entries) {
             System.out.println(e.toString());
         }
-        return "Done";
     }
 
 

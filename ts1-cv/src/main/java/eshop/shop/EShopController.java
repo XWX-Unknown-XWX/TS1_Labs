@@ -90,7 +90,7 @@ public class EShopController {
         newCart.addItem(storageItems[4]);
         newCart.addItem(storageItems[5]);
         purchaseShoppingCart(newCart, "Libuse Novakova", "Kosmonautu 25, Praha 8");
-        archive.printItemPurchaseStatistics(statistics);
+        archive.printItemPurchaseStatistics();
         storage.printListOfStoredItems();
 
 

@@ -28,7 +28,7 @@ public class PurchasesArchiveTest {
     public String customerAddress = "Prague 10";
 
     // For ItemPurchaseArchiveEntry test
-    Item item;
+    StandardItem item;
     PurchasesArchive purchasesArchive = Mockito.mock(PurchasesArchive.class);
     public String name = "Hero";
     public String category = "IDE";
@@ -48,24 +48,25 @@ public class PurchasesArchiveTest {
         System.setErr(new PrintStream(errContent));
     }
 
-    @Test
-    @DisplayName("Testing printItemPurchaseStatistics correct output")
-    public void printOutput_printItemPurchaseStatistics() throws NullPointerException {
-        PurchasesArchive purchasesArchiveNotMock = new PurchasesArchive();
-        System.out.print(purchasesArchiveNotMock.printItemPurchaseStatistics("DONE!"));
-        assertEquals(purchasesArchiveNotMock.printItemPurchaseStatistics("DONE!"), outContent.toString());
-    }
-
     @AfterEach
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setErr(originalErr);
     }
 
+    @Test
+    @DisplayName("Testing printItemPurchaseStatistics correct output")
+    public void printOutput_printItemPurchaseStatistics() {
+        String expectedOut = "ITEM PURCHASE STATISTICS:";
+        PurchasesArchive purchasesArchive = new PurchasesArchive();
+        purchasesArchive.printItemPurchaseStatistics();
+        assertEquals(expectedOut, outContent.toString().trim());
+    }
+
     @BeforeEach
     @DisplayName("Setting @BeforeEach for item")
     public void setItem() {
-        item = new Item(id, name, price, category);
+        item = new StandardItem(id, name, price, category, loyaltyPoints);
     }
 
     @Test

@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class EShopControllerTest {
-    Item item;
+    StandardItem item;
     Item[] storageItems;
     ArrayList<Item> purchasedItem = new ArrayList<>();
     Storage storage = new Storage();
@@ -29,6 +29,8 @@ public class EShopControllerTest {
     public String name = "IntelliJ Idea";
     public String category = "IDE";
     public int id = 25092001;
+
+    public int loyaltyPoints = 100;
     public float price = 10032;
 
     // For PurchaseArchive test
@@ -54,7 +56,7 @@ public class EShopControllerTest {
     @BeforeEach
     @DisplayName("Implementation @BeforeEach Item")
     public void setItem() {
-        item = new Item(id, name, price, category);
+        item = new StandardItem(id, name, price, category, loyaltyPoints);
     }
 
     ShoppingCart shoppingCart = new ShoppingCart();
@@ -108,6 +110,12 @@ public class EShopControllerTest {
         System.setErr(new PrintStream(errContent));
     }
 
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+        System.setErr(originalErr);
+    }
+
     @Test
     @DisplayName("Testing purchasing shopping cart is empty")
     public void purchaseShoppingCart_testing() throws NoItemInStorage {
@@ -115,12 +123,6 @@ public class EShopControllerTest {
         EShopController.startEShop();
         EShopController.purchaseShoppingCart(shoppingCart, customerName, customerAddress);
         assertEquals(expectedOutput, outContent.toString().trim());
-    }
-
-    @AfterEach
-    public void restoreStreams() {
-        System.setOut(originalOut);
-        System.setErr(originalErr);
     }
 
     @BeforeEach
@@ -145,7 +147,9 @@ public class EShopControllerTest {
     @Test
     @DisplayName("Testing storage printList of stored items implementation")
     public void storage_testing_printListOfStoredItems() {
-        assertEquals(storage.printListOfStoredItems(), "Done");
+        String expectedOutput = "STORAGE IS CURRENTLY CONTAINING:";
+        storage.printListOfStoredItems();
+        assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test

@@ -62,12 +62,12 @@ public class PurchasesArchive {
         this.orderArchive = orderArchive;
     }
 
-    public String printItemPurchaseStatistics(String stats) {
+    public void printItemPurchaseStatistics() {
         Collection<ItemPurchaseArchiveEntry> itemEntries = itemPurchaseArchive.values();
-        for (ItemPurchaseArchiveEntry e : itemEntries) {
+        System.out.println("ITEM PURCHASE STATISTICS:");
+        for(ItemPurchaseArchiveEntry e : itemEntries) {
             System.out.println(e.toString());
         }
-        return stats;
     }
 
     public int getHowManyTimesHasBeenItemSold(Item item) {
