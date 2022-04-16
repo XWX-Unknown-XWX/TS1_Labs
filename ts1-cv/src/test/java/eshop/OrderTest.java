@@ -26,7 +26,7 @@ public class OrderTest {
     }
 
     @Test
-    @DisplayName("Controlling first Constructor Class Address")
+    @DisplayName("Controlling first Constructor Class Customer Address")
     public void orderFirstClass_testing_address() {
         assertEquals(customerAddress1, orderFirst.getCustomerAddress());
     }
@@ -44,25 +44,25 @@ public class OrderTest {
     }
 
     @Test
-    @DisplayName("Controlling first Constructor Class Items are not NULL")
+    @DisplayName("Controlling first Constructor Class Items is not NULL")
     public void orderFirstClass_testing_items_notNull() {
         assertNotNull(orderFirst.getItems());
     }
 
     @Test
-    @DisplayName("Controlling first Constructor Class Items are not NULL")
+    @DisplayName("Controlling first Constructor Class Customer Name is not NULL")
     public void orderFirstClass_testing_name_notNull() {
         assertNotNull(orderFirst.getCustomerName());
     }
 
     @Test
-    @DisplayName("Controlling first Constructor Class Customer Address are not NULL")
+    @DisplayName("Controlling first Constructor Class Customer Address is not NULL")
     public void orderFirstClass_testing_customerAddress_notNull() {
         assertNotNull(orderFirst.getCustomerAddress());
     }
 
     @Test
-    @DisplayName("Controlling first Constructor Class Items are not NULL")
+    @DisplayName("Controlling first Order Class is not NULL")
     public void orderFirstClass_testing_firstOrderClass_notNull() {
         assertNotNull(orderFirst);
     }
@@ -74,13 +74,13 @@ public class OrderTest {
     }
 
     @Test
-    @DisplayName("Controlling second Constructor Class Cart Item")
+    @DisplayName("Controlling second Constructor Class Customer Name")
     public void orderSecondClass_testing_customerName() {
         assertEquals(customerName2, orderSecond.getCustomerName());
     }
 
     @Test
-    @DisplayName("Controlling second Constructor Class Cart Item")
+    @DisplayName("Controlling second Constructor Class Customer Address")
     public void orderSecondClass_testing_customerAddress() {
         assertEquals(customerAddress2, orderSecond.getCustomerAddress());
     }
@@ -92,13 +92,13 @@ public class OrderTest {
     }
 
     @Test
-    @DisplayName("Controlling second Constructor Class Cart Item")
+    @DisplayName("Controlling second Constructor Class Customer Name is not NULL")
     public void orderSecondClass_testing_customerName_notNull() {
         assertNotNull(orderSecond.getCustomerName());
     }
 
     @Test
-    @DisplayName("Controlling second Constructor Class Cart Item")
+    @DisplayName("Controlling second Constructor Class Customer Address is not NULL")
     public void orderSecondClass_testing_customerAddress_notNull() {
         assertNotNull(orderSecond.getCustomerAddress());
     }

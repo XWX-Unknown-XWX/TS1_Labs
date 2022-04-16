@@ -46,7 +46,7 @@ public class EShopControllerTest {
     }
 
     @Test
-    @DisplayName("Testing creating newCart for purchasing")
+    @DisplayName("Testing get newCart")
     public void eShopController_testing_newCart() {
         eShopController.setNewCart(mockedShoppingCart);
         assertEquals(eShopController.getNewCart(), eShopController.newCart());
@@ -54,7 +54,7 @@ public class EShopControllerTest {
     }
 
     @BeforeEach
-    @DisplayName("Implementation @BeforeEach Item")
+    @DisplayName("Implementation @BeforeEach for Item")
     public void setItem() {
         item = new StandardItem(id, name, price, category, loyaltyPoints);
     }
@@ -117,7 +117,7 @@ public class EShopControllerTest {
     }
 
     @Test
-    @DisplayName("Testing purchasing shopping cart is empty")
+    @DisplayName("Testing purchasing shopping cart is empty by println(stream)")
     public void purchaseShoppingCart_testing() throws NoItemInStorage {
         String expectedOutput = "Error: shopping cart is empty";
         EShopController.startEShop();
@@ -145,7 +145,7 @@ public class EShopControllerTest {
     }
 
     @Test
-    @DisplayName("Testing storage printList of stored items implementation")
+    @DisplayName("Testing storage printList of stored items")
     public void storage_testing_printListOfStoredItems() {
         String expectedOutput = "STORAGE IS CURRENTLY CONTAINING:";
         storage.printListOfStoredItems();
@@ -153,7 +153,7 @@ public class EShopControllerTest {
     }
 
     @Test
-    @DisplayName("Testing startEshop storage preparation")
+    @DisplayName("Testing startEshop storage is ready")
     public void startEshop_testing_implementation() {
         assertEquals(EShopController.startEShop(), "Storage is ready.");
     }

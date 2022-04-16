@@ -62,19 +62,19 @@ public class StandardItemTest {
     }
 
     @Test
-    @DisplayName("Testing StandardItem Copy method equals")
+    @DisplayName("Testing StandardItem Copy method")
     public void standardItem_testing_copyTest() {
         assertEquals(standardItem, standardItem.copy());
     }
 
     @Test
-    @DisplayName("Testing StandardItem Copy method for NULL")
+    @DisplayName("Testing StandardItem Copy method is not NULL")
     public void standardItem_testNull() {
         assertNotNull(standardItem.copy());
     }
 
     @ParameterizedTest
-    @DisplayName("Testing equals method")
+    @DisplayName("Testing StandardItem equals method")
     @CsvSource({"12312, Petr, 23232, JTest, 150", "222123, Jiri, 2123, OOP, 200", "123123, Dima, 25252, Java, 145"})
     public void standardItem_equalsTest(int id, String name, float price, String category, int loyaltyPoints) {
         boolean isEquals = false;

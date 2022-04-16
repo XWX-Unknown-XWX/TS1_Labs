@@ -55,7 +55,7 @@ public class PurchasesArchiveTest {
     }
 
     @Test
-    @DisplayName("Testing printItemPurchaseStatistics correct output")
+    @DisplayName("Testing printItemPurchaseStatistics correct output by println(stream)")
     public void printOutput_printItemPurchaseStatistics() {
         String expectedOut = "ITEM PURCHASE STATISTICS:";
         PurchasesArchive purchasesArchive = new PurchasesArchive();
@@ -83,7 +83,7 @@ public class PurchasesArchiveTest {
     }
 
     @Test
-    @DisplayName("Testing putOrderToPurchasesArchive method with new println(stream)")
+    @DisplayName("Testing putOrderToPurchasesArchive method")
     public void putOrderToPurchasesArchive_testing() {
         purchasesArchive.setTrue(true);
         boolean isTrue = purchasesArchive.getIsTrue();
@@ -106,7 +106,7 @@ public class PurchasesArchiveTest {
     private HashMap<Integer, ItemPurchaseArchiveEntry> mockedItemPurchaseArchive;
 
     @Test
-    @DisplayName("Testing PurchaseArchive constructor itemArchive")
+    @DisplayName("Testing ItemPurchaseArchive")
     public void purchaseArchive_testing_constructorSecondParam() {
         purchasesArchive.setItemPurchaseArchive(mockedItemPurchaseArchive);
         assertNotNull(purchasesArchive.getItemPurchaseArchive());
@@ -117,7 +117,7 @@ public class PurchasesArchiveTest {
     private ItemPurchaseArchiveEntry mockedArchiveEntry;
 
     @Test
-    @DisplayName("Testing ItemPurchaseArchiveEntry elements with mock")
+    @DisplayName("Testing ItemPurchaseArchiveEntry")
     public void purchaseArchive_testing_ArchiveEntry() {
         purchasesArchive.setPurchaseArchiveEntry(mockedArchiveEntry);
         assertNull(purchasesArchive.getPurchaseArchiveEntry());
@@ -125,7 +125,7 @@ public class PurchasesArchiveTest {
     }
 
     @Test
-    @DisplayName("Testing PurchasesArchive constructor with mock")
+    @DisplayName("Testing PurchasesArchive")
     public void purchaseArchiveEntry_testing_itemPurchaseArchive() {
         Item item = new StandardItem(id, name, price, category, loyaltyPoints);
         ItemPurchaseArchiveEntry itemPurchaseArchiveEntry = new ItemPurchaseArchiveEntry(item);
