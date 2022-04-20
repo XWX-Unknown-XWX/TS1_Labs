@@ -17,6 +17,21 @@ public class EShopController {
     private static ArrayList<Order> orders;
     private static String statistics;
 
+    public static Storage getStorage() {
+        return storage;
+    }
+    public static PurchasesArchive getArchive() {
+        return archive;
+    }
+
+    public static ArrayList<ShoppingCart> getCarts() {
+        return carts;
+    }
+
+    public static ArrayList<Order> getOrders() {
+        return orders;
+    }
+
     public EShopController() {
     }
 
@@ -73,12 +88,10 @@ public class EShopController {
         };
 
         // insert data to the storage
-        for (int i = 0; i < storageItems.length; i++) {
-            storage.insertItems(storageItems[i], itemCount[i]);
-        }
+        ItemOutput(itemCount, storageItems);
 
 
-        storage.printListOfStoredItems();
+        Storage.printListOfStoredItems();
 
         System.out.println();
 
@@ -91,7 +104,7 @@ public class EShopController {
         newCart.addItem(storageItems[5]);
         purchaseShoppingCart(newCart, "Libuse Novakova", "Kosmonautu 25, Praha 8");
         archive.printItemPurchaseStatistics();
-        storage.printListOfStoredItems();
+        Storage.printListOfStoredItems();
 
 
         System.out.println();
@@ -101,5 +114,11 @@ public class EShopController {
 
         ShoppingCart newEmptyCart = new ShoppingCart();
         purchaseShoppingCart(newEmptyCart, "Jarmila Novakova", "Spojovaci 23, Praha 3");
+    }
+
+    public static void ItemOutput(int[] itemCount, Item[] storageItems) {
+        for (int i = 0; i < storageItems.length; i++) {
+            storage.insertItems(storageItems[i], itemCount[i]);
+        }
     }
 }

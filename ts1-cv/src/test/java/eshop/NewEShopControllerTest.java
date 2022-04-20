@@ -10,15 +10,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NewEShopControllerTest {
     Item[] storageItems;
-    Storage storage = new Storage();
     ShoppingCart shoppingCart = new ShoppingCart();
     public String customerName = "Dmitrij";
     public String customerAddress = "Prague 10";
     public String name = "IntelliJ Idea";
-
     // For PurchaseArchive test
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -37,6 +36,18 @@ public class NewEShopControllerTest {
         System.setErr(originalErr);
     }
 
+    @Test
+    @Order(1)
+    @DisplayName("Testing Starting EShop")
+    public void startingEShop_testing_init() {
+        EShopController.startEShop();
+        assertTrue(
+                EShopController.getStorage() != null &&
+                EShopController.getArchive() != null &&
+                EShopController.getCarts() != null &&
+                EShopController.getOrders() != null);
+    }
+
     @BeforeEach
     @DisplayName("set @BeforeEach storage items")
     public void setStorage() {
@@ -51,32 +62,26 @@ public class NewEShopControllerTest {
     }
 
     @Test
-    @Order(1)
-    @DisplayName("Testing Starting EShop")
-    public void startingEShop_testing_init() {
-        String expectedReturnedValue = "Storage is not null.";
-        assertEquals(expectedReturnedValue, EShopController.startEShop());
-    }
-
-    @Test
     @Order(2)
     @DisplayName("Testing Inserting storage items into EShop")
     public void showingListOfStoredItems_testing() {
-        assertEquals(storageItems[4].getID(), storage.insertItems(storageItems[4], 5));
+        int[] items = new int[6];
+        EShopController.startEShop();
+        EShopController.ItemOutput(items, storageItems);
+        Storage.printListOfStoredItems();
+        String expectedOutput =
+                "STORAGE IS CURRENTLY CONTAINING:\n" +
+                "STOCK OF ITEM:  Item   ID 1   NAME Dancing Panda v.2   CATEGORY GADGETS   PRICE 5000.0   LOYALTY POINTS 5    PIECES IN STORAGE: 0\n" +
+                "STOCK OF ITEM:  Item   ID 2   NAME Dancing Panda v.3 with USB port   CATEGORY GADGETS   PRICE 6000.0   LOYALTY POINTS 10    PIECES IN STORAGE: 0\n" +
+                "STOCK OF ITEM:  Item   ID 3   NAME Screwdriver   CATEGORY TOOLS   PRICE 200.0   LOYALTY POINTS 5    PIECES IN STORAGE: 0\n" +
+                "STOCK OF ITEM:  Item   ID 4   NAME Star Wars Jedi buzzer   CATEGORY GADGETS   ORIGINAL PRICE 500.0    DISCOUNTED PRICE 35000.0  DISCOUNT FROM Thu Aug 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n" +
+                "STOCK OF ITEM:  Item   ID 5   NAME Angry bird cup   CATEGORY GADGETS   ORIGINAL PRICE 300.0    DISCOUNTED PRICE 24000.0  DISCOUNT FROM Sun Sep 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n" +
+                "STOCK OF ITEM:  Item   ID 6   NAME Soft toy Angry bird (size 40cm)   CATEGORY GADGETS   ORIGINAL PRICE 800.0    DISCOUNTED PRICE 72000.0  DISCOUNT FROM Thu Aug 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n";
+        assertEquals(expectedOutput, outContent.toString());
     }
-
 
     @Test
     @Order(3)
-    @DisplayName("Testing Showing list of stored items")
-    public void storage_testing_printListOfStoredItems() {
-        String expectedOutput = "STORAGE IS CURRENTLY CONTAINING:";
-        storage.printListOfStoredItems();
-        assertEquals(expectedOutput, outContent.toString().trim());
-    }
-
-    @Test
-    @Order(4)
     @DisplayName("Testing purchasing shopping cart is empty")
     public void purchaseShoppingCart_testing_isEmpty() throws NoItemInStorage {
         String expectedOutput = "Error: shopping cart is empty";
@@ -86,34 +91,28 @@ public class NewEShopControllerTest {
     }
 
     @Test
-    @Order(5)
-    @DisplayName("Testing creating new cart and adding/removing items with expected error")
-    public void creatingNewCart_testing() throws NoItemInStorage {
+    @Order(4)
+    @DisplayName("Testing creating new cart, adding/removing items with expected error")
+    public void creatingNewCart_testing() {
         EShopController.startEShop();
         ShoppingCart newCart = new ShoppingCart();
-        shoppingCart.addItem(storageItems[1]);
-        shoppingCart.addItem(storageItems[2]);
-        shoppingCart.addItem(storageItems[3]);
-        shoppingCart.addItem(storageItems[4]);
-        shoppingCart.addItem(storageItems[5]);
-        shoppingCart.removeItem(2);
-        EShopController.purchaseShoppingCart(newCart, "Libuse Novakova", "Kosmonautu 25, Praha 8");
-        String expectedOutput =
-                        "Item with ID 2 added to the shopping cart.\n" +
-                        "Item with ID 3 added to the shopping cart.\n" +
-                        "Item with ID 4 added to the shopping cart.\n" +
-                        "Item with ID 5 added to the shopping cart.\n" +
-                        "Item with ID 6 added to the shopping cart.\n" +
-                        "Error: shopping cart is empty\n";
-        assertEquals(expectedOutput, outContent.toString());
-    }
-
-    @Test
-    @Order(6)
-    @DisplayName("Testing printing list of stored items")
-    public void printListOfStoredItems_testingStatistics() {
-        String expectedOutput = "STORAGE IS CURRENTLY CONTAINING:";
-        storage.printListOfStoredItems();
-        assertEquals(expectedOutput, outContent.toString().trim());
+        newCart.addItem(storageItems[1]);
+        newCart.addItem(storageItems[2]);
+        newCart.addItem(storageItems[3]);
+        newCart.addItem(storageItems[4]);
+        newCart.addItem(storageItems[5]);
+        newCart.removeItem(2);
+        try {
+            EShopController.purchaseShoppingCart(newCart, "Libuse Novakova", "Kosmonautu 25, Praha 8");
+            Storage.printListOfStoredItems();
+            String expectedOutput =
+                    "Item with ID 2 added to the shopping cart.\n" +
+                            "Item with ID 3 added to the shopping cart.\n" +
+                            "Item with ID 4 added to the shopping cart.\n" +
+                            "Item with ID 5 added to the shopping cart.\n" +
+                            "Item with ID 6 added to the shopping cart.\n" +
+                            "STORAGE IS CURRENTLY CONTAINING:\n";
+            assertEquals(expectedOutput, outContent.toString());
+        } catch (NoItemInStorage ignored) {}
     }
 }

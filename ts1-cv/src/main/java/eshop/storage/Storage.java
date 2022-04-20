@@ -9,24 +9,24 @@ import java.util.HashMap;
 
 public class Storage {
 
-    private HashMap<Integer, ItemStock> stock;
+    private static HashMap<Integer, ItemStock> stock;
 
     public Storage(HashMap<Integer, ItemStock> stock) {
-        this.stock = stock;
+        Storage.stock = stock;
     }
 
     public Storage() {
         stock = new HashMap<Integer, ItemStock>();
     }
 
-    public Collection<ItemStock> getStockEntries() {
+    public static Collection<ItemStock> getStockEntries() {
         return stock.values();
     }
 
     /**
      * Prints list of items in the storage to the standard output
      */
-    public void printListOfStoredItems() {
+    public static void printListOfStoredItems() {
         Collection<ItemStock> entries = getStockEntries();
         System.out.println("STORAGE IS CURRENTLY CONTAINING:");
         for (ItemStock e : entries) {
