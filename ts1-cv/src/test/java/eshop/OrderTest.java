@@ -102,4 +102,17 @@ public class OrderTest {
     public void orderSecondClass_testing_customerAddress_notNull() {
         assertNotNull(orderSecond.getCustomerAddress());
     }
+
+    @Test
+    @DisplayName("Controlling second Order Class is not NULL")
+    public void orderFirstClass_testing_secondOrderClass_notNull() {
+        assertNotNull(orderSecond);
+    }
+
+    @Test
+    @DisplayName("Controlling Shopping Cart is not NULL")
+    public void shoppingCart_testing_isNotNull() {
+        assertNotNull(cart);
+    }
+
 }
