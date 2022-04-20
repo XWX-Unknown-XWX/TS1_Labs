@@ -1,5 +1,6 @@
 package eshop;
 
+import eshop.archive.PurchasesArchive;
 import eshop.shop.*;
 import eshop.storage.NoItemInStorage;
 import eshop.storage.Storage;
@@ -43,15 +44,15 @@ public class NewEShopControllerTest {
         EShopController.startEShop();
         assertTrue(
                 EShopController.getStorage() != null &&
-                EShopController.getArchive() != null &&
-                EShopController.getCarts() != null &&
-                EShopController.getOrders() != null);
+                        EShopController.getArchive() != null &&
+                        EShopController.getCarts() != null &&
+                        EShopController.getOrders() != null);
     }
 
     @BeforeEach
     @DisplayName("set @BeforeEach storage items")
     public void setStorage() {
-        storageItems = new Item[]{
+        storageItems = new Item[] {
                 new StandardItem(1, "Dancing Panda v.2", 5000, "GADGETS", 5),
                 new StandardItem(2, "Dancing Panda v.3 with USB port", 6000, "GADGETS", 10),
                 new StandardItem(3, "Screwdriver", 200, "TOOLS", 5),
@@ -63,7 +64,7 @@ public class NewEShopControllerTest {
 
     @Test
     @Order(2)
-    @DisplayName("Testing Inserting storage items into EShop")
+    @DisplayName("Testing Inserting storage items into EShop + Showing list of stored items")
     public void showingListOfStoredItems_testing() {
         int[] items = new int[6];
         EShopController.startEShop();
@@ -71,12 +72,12 @@ public class NewEShopControllerTest {
         Storage.printListOfStoredItems();
         String expectedOutput =
                 "STORAGE IS CURRENTLY CONTAINING:\n" +
-                "STOCK OF ITEM:  Item   ID 1   NAME Dancing Panda v.2   CATEGORY GADGETS   PRICE 5000.0   LOYALTY POINTS 5    PIECES IN STORAGE: 0\n" +
-                "STOCK OF ITEM:  Item   ID 2   NAME Dancing Panda v.3 with USB port   CATEGORY GADGETS   PRICE 6000.0   LOYALTY POINTS 10    PIECES IN STORAGE: 0\n" +
-                "STOCK OF ITEM:  Item   ID 3   NAME Screwdriver   CATEGORY TOOLS   PRICE 200.0   LOYALTY POINTS 5    PIECES IN STORAGE: 0\n" +
-                "STOCK OF ITEM:  Item   ID 4   NAME Star Wars Jedi buzzer   CATEGORY GADGETS   ORIGINAL PRICE 500.0    DISCOUNTED PRICE 35000.0  DISCOUNT FROM Thu Aug 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n" +
-                "STOCK OF ITEM:  Item   ID 5   NAME Angry bird cup   CATEGORY GADGETS   ORIGINAL PRICE 300.0    DISCOUNTED PRICE 24000.0  DISCOUNT FROM Sun Sep 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n" +
-                "STOCK OF ITEM:  Item   ID 6   NAME Soft toy Angry bird (size 40cm)   CATEGORY GADGETS   ORIGINAL PRICE 800.0    DISCOUNTED PRICE 72000.0  DISCOUNT FROM Thu Aug 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n";
+                        "STOCK OF ITEM:  Item   ID 1   NAME Dancing Panda v.2   CATEGORY GADGETS   PRICE 5000.0   LOYALTY POINTS 5    PIECES IN STORAGE: 0\n" +
+                        "STOCK OF ITEM:  Item   ID 2   NAME Dancing Panda v.3 with USB port   CATEGORY GADGETS   PRICE 6000.0   LOYALTY POINTS 10    PIECES IN STORAGE: 0\n" +
+                        "STOCK OF ITEM:  Item   ID 3   NAME Screwdriver   CATEGORY TOOLS   PRICE 200.0   LOYALTY POINTS 5    PIECES IN STORAGE: 0\n" +
+                        "STOCK OF ITEM:  Item   ID 4   NAME Star Wars Jedi buzzer   CATEGORY GADGETS   ORIGINAL PRICE 500.0    DISCOUNTED PRICE 35000.0  DISCOUNT FROM Thu Aug 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n" +
+                        "STOCK OF ITEM:  Item   ID 5   NAME Angry bird cup   CATEGORY GADGETS   ORIGINAL PRICE 300.0    DISCOUNTED PRICE 24000.0  DISCOUNT FROM Sun Sep 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n" +
+                        "STOCK OF ITEM:  Item   ID 6   NAME Soft toy Angry bird (size 40cm)   CATEGORY GADGETS   ORIGINAL PRICE 800.0    DISCOUNTED PRICE 72000.0  DISCOUNT FROM Thu Aug 01 00:00:00 CEST 2013    DISCOUNT TO Sun Dec 01 00:00:00 CET 2013    PIECES IN STORAGE: 0\n";
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -92,8 +93,8 @@ public class NewEShopControllerTest {
 
     @Test
     @Order(4)
-    @DisplayName("Testing creating new cart, adding/removing items with expected error")
-    public void creatingNewCart_testing() {
+    @DisplayName("Testing creating new cart, adding/removing items")
+    public void processWithNewCart_testing() {
         EShopController.startEShop();
         ShoppingCart newCart = new ShoppingCart();
         newCart.addItem(storageItems[1]);
@@ -114,5 +115,15 @@ public class NewEShopControllerTest {
                             "STORAGE IS CURRENTLY CONTAINING:\n";
             assertEquals(expectedOutput, outContent.toString());
         } catch (NoItemInStorage ignored) {}
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Testing showing statistics of purchased Items")
+    public void showingStatistics_test() {
+        PurchasesArchive purchasesArchive = new PurchasesArchive();
+        purchasesArchive.printItemPurchaseStatistics();
+        String expectedOutput = "ITEM PURCHASE STATISTICS:\n";
+        assertEquals(expectedOutput, outContent.toString());
     }
 }
