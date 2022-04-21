@@ -33,6 +33,7 @@ public class DemoQAFormTests extends TestCase {
         executor.executeScript("arguments[0].click();", element);
     }
 
+    // Alternative solution to the 1st test (Using DemoQAMainPage class for this test)
     @Test
     public void formsTestPageObject() {
         new DemoQAMainPage(getDriver()).clickForms();

@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import static java.sql.DriverManager.getDriver;
-
 public class DemoQAMainPage {
 
     private final WebDriver driver;
@@ -30,5 +28,4 @@ public class DemoQAMainPage {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
-
 }
