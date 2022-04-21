@@ -1,4 +1,4 @@
-package lab08;
+package lab09;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
