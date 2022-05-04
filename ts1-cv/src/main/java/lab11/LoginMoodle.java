@@ -37,7 +37,7 @@ public class LoginMoodle {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driverWait.until(ExpectedConditions.visibilityOf(internalLogin));
         jsClick(internalLogin);
-        userName.sendKeys("loggin");
+        userName.sendKeys("login");
         userPassword.sendKeys("password");
         jsClick(submitButton);
         return new MoodleCoursePage(driver);
