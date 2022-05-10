@@ -12,7 +12,6 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PagesParameterizedTest extends TestCase {
-
     @ParameterizedTest
     @CsvSource({
             "APOGEN: automatic page object generator for web testing, " +
@@ -21,7 +20,7 @@ public class PagesParameterizedTest extends TestCase {
     public void testFirstPage(String title, String date, String doi) {
         WebDriver driver = getDriver();
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://link.springer.com/article/10.1007/s11219-016-9331-9");
         wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
@@ -39,7 +38,7 @@ public class PagesParameterizedTest extends TestCase {
     public void testSecondPage(String title, String date, String doi) {
         WebDriver driver = getDriver();
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://link.springer.com/article/10.1007/s11219-021-09575-w");
         wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
@@ -57,7 +56,7 @@ public class PagesParameterizedTest extends TestCase {
     public void testThirdPage(String title, String date, String doi) {
         WebDriver driver = getDriver();
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://link.springer.com/article/10.1186/s40635-017-0151-4");
         wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
@@ -75,7 +74,7 @@ public class PagesParameterizedTest extends TestCase {
     public void testFourthPage(String title, String date, String doi) {
         WebDriver driver = getDriver();
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://link.springer.com/article/10.1186/s40635-020-00354-8");
         wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
