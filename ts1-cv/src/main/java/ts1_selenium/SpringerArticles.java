@@ -31,32 +31,32 @@ public class SpringerArticles {
         PageFactory.initElements(this.driver, this);
     }
 
-    public PageArticleDownload firstPage() {
+    public PageArticleSave firstPage() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driverWait.until(ExpectedConditions.visibilityOf(firstTitle));
         jsClick(firstTitle);
-        return new PageArticleDownload(driver);
+        return new PageArticleSave(driver);
     }
 
-    public PageArticleDownload secondPage() {
+    public PageArticleSave secondPage() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driverWait.until(ExpectedConditions.visibilityOf(secondTitle));
         jsClick(secondTitle);
-        return new PageArticleDownload(driver);
+        return new PageArticleSave(driver);
     }
 
-    public PageArticleDownload thirdPage() {
+    public PageArticleSave thirdPage() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driverWait.until(ExpectedConditions.visibilityOf(thirdTitle));
         jsClick(thirdTitle);
-        return new PageArticleDownload(driver);
+        return new PageArticleSave(driver);
     }
 
-    public PageArticleDownload fourthPage() {
+    public PageArticleSave fourthPage() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driverWait.until(ExpectedConditions.visibilityOf(fourthTitle));
         jsClick(fourthTitle);
-        return new PageArticleDownload(driver);
+        return new PageArticleSave(driver);
     }
 
     public void jsClick(WebElement element) {

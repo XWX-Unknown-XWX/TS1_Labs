@@ -4,7 +4,6 @@ import lab09.TestCase;
 import org.junit.jupiter.api.Test;
 
 public class SpringerPageTest extends TestCase {
-
     @Test
     public void testingSpringerPage() {
         new SpringerMainPage(getDriver())
@@ -14,13 +13,13 @@ public class SpringerPageTest extends TestCase {
                 .searchOut()
                 .endSearching()
                 .firstPage()
-                .downloadCitation()
+                .saveFirstCitation()
                 .secondPage()
-                .downloadCitation()
+                .saveSecondCitation()
                 .thirdPage()
-                .downloadCitation()
+                .saveThirdCitation()
                 .fourthPage()
-                .downloadCitation();
-        System.out.println();
+                .saveFourthCitation();
+        System.out.println(); //Select this line and run debug to see the testing process
     }
 }

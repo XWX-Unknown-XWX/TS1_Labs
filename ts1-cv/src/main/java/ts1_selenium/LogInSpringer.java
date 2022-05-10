@@ -23,6 +23,7 @@ public class LogInSpringer {
 
     @FindBy(how = How.XPATH, using = "//button[@title='Log in']")
     private WebElement logInClick;
+
     public LogInSpringer(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
