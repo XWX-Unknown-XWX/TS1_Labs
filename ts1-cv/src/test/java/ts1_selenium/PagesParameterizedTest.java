@@ -23,9 +23,9 @@ public class PagesParameterizedTest extends TestCase {
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get("https://link.springer.com/article/10.1007/s11219-016-9331-9");
-        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getFirstArticleTitle()));
+        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
-                () -> assertEquals(title, pageArticleSave.getFirstArticleTitle().getText()),
+                () -> assertEquals(title, pageArticleSave.getArticleTitle().getText()),
                 () -> assertEquals(date, pageArticleSave.getFirstDatePublished().getText()),
                 () -> assertEquals(doi, pageArticleSave.getFirstDOI().getText())
         );
@@ -41,9 +41,9 @@ public class PagesParameterizedTest extends TestCase {
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get("https://link.springer.com/article/10.1007/s11219-021-09575-w");
-        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getSecondArticleTitle()));
+        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
-                () -> assertEquals(title, pageArticleSave.getSecondArticleTitle().getText()),
+                () -> assertEquals(title, pageArticleSave.getArticleTitle().getText()),
                 () -> assertEquals(date, pageArticleSave.getSecondDatePublished().getText()),
                 () -> assertEquals(doi, pageArticleSave.getSecondDOI().getText())
         );
@@ -59,9 +59,9 @@ public class PagesParameterizedTest extends TestCase {
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get("https://link.springer.com/article/10.1186/s40635-017-0151-4");
-        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getThirdArticleTitle()));
+        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
-                () -> assertEquals(title, pageArticleSave.getThirdArticleTitle().getText()),
+                () -> assertEquals(title, pageArticleSave.getArticleTitle().getText()),
                 () -> assertEquals(date, pageArticleSave.getThirdDatePublished().getText()),
                 () -> assertEquals(doi, pageArticleSave.getThirdDOI().getText())
         );
@@ -77,9 +77,9 @@ public class PagesParameterizedTest extends TestCase {
         PageArticleSave pageArticleSave = new PageArticleSave(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get("https://link.springer.com/article/10.1186/s40635-020-00354-8");
-        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getFourthArticleTitle()));
+        wait.until(ExpectedConditions.visibilityOf(pageArticleSave.getArticleTitle()));
         assertAll(
-                () -> assertEquals(title, pageArticleSave.getFourthArticleTitle().getText()),
+                () -> assertEquals(title, pageArticleSave.getArticleTitle().getText()),
                 () -> assertEquals(date, pageArticleSave.getFourthDatePublished().getText()),
                 () -> assertEquals(doi, pageArticleSave.getFourthDOI().getText())
         );

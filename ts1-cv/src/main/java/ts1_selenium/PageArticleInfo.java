@@ -8,7 +8,7 @@ public abstract class PageArticleInfo {
 
     //--Title--
     @FindBy(how = How.XPATH, using = "//h1[@class='c-article-title']")
-    private WebElement firstArticleTitle, secondArticleTitle, thirdArticleTitle, fourthArticleTitle;
+    private WebElement articleTitle;
 
     //--DatePublished--
     @FindBy(how = How.XPATH, using = "//time[@datetime='2016-08-09']")
@@ -37,20 +37,8 @@ public abstract class PageArticleInfo {
     private WebElement fourthDOI;
 
     //--Article--
-    public WebElement getFirstArticleTitle() {
-        return firstArticleTitle;
-    }
-
-    public WebElement getSecondArticleTitle() {
-        return secondArticleTitle;
-    }
-
-    public WebElement getThirdArticleTitle() {
-        return thirdArticleTitle;
-    }
-
-    public WebElement getFourthArticleTitle() {
-        return fourthArticleTitle;
+    public WebElement getArticleTitle() {
+        return articleTitle;
     }
 
     //--DatePublished--

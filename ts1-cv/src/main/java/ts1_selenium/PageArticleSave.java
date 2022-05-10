@@ -23,7 +23,7 @@ public class PageArticleSave extends PageArticleInfo {
 
     public SpringerArticles saveFirstCitation() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driverWait.until(ExpectedConditions.visibilityOf(getFirstArticleTitle()));
+        driverWait.until(ExpectedConditions.visibilityOf(getArticleTitle()));
         downloadPage.click();
         driver.navigate().back();
         return new SpringerArticles(driver);
@@ -31,7 +31,7 @@ public class PageArticleSave extends PageArticleInfo {
 
     public SpringerArticles saveSecondCitation() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driverWait.until(ExpectedConditions.visibilityOf(getSecondArticleTitle()));
+        driverWait.until(ExpectedConditions.visibilityOf(getArticleTitle()));
         downloadPage.click();
         driver.navigate().back();
         return new SpringerArticles(driver);
@@ -39,7 +39,7 @@ public class PageArticleSave extends PageArticleInfo {
 
     public SpringerArticles saveThirdCitation() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driverWait.until(ExpectedConditions.visibilityOf(getThirdArticleTitle()));
+        driverWait.until(ExpectedConditions.visibilityOf(getArticleTitle()));
         downloadPage.click();
         driver.navigate().back();
         return new SpringerArticles(driver);
@@ -47,7 +47,7 @@ public class PageArticleSave extends PageArticleInfo {
 
     public SpringerArticles saveFourthCitation() {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driverWait.until(ExpectedConditions.visibilityOf(getFourthArticleTitle()));
+        driverWait.until(ExpectedConditions.visibilityOf(getArticleTitle()));
         downloadPage.click();
         driver.navigate().back();
         return new SpringerArticles(driver);
