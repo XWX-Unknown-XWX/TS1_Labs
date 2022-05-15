@@ -8,7 +8,7 @@ public class SpringerPageTest extends TestCase {
     public void testingSpringerPage() {
         new SpringerMainPage(getDriver())
                 .logInSpringer()
-                .loggedPage()
+                .loggedPage("login","password")
                 .advancedSearch()
                 .searchOut()
                 .endSearching()

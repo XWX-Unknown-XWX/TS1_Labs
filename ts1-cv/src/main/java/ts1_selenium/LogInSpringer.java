@@ -29,11 +29,11 @@ public class LogInSpringer {
         PageFactory.initElements(this.driver, this);
     }
 
-    public LoggedPage loggedPage() {
+    public LoggedPage loggedPage(String userEmail, String userPassword) {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driverWait.until(ExpectedConditions.visibilityOf(email));
-        email.sendKeys("email");
-        password.sendKeys("password");
+        email.sendKeys(userEmail);
+        password.sendKeys(userPassword);
         jsClick(logInClick);
         return new LoggedPage(driver);
     }
