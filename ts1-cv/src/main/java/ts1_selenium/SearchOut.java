@@ -34,13 +34,17 @@ public class SearchOut {
     private WebElement articleDOI;
 
     public SearchOut(WebDriver driver) {
+        addArticlesToList();
+        articleInfos = new ArrayList<>();
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
+    }
+
+    private void addArticlesToList() {
         articles.add("https://link.springer.com/article/10.1007/s11219-016-9331-9");
         articles.add("https://link.springer.com/article/10.1007/s13198-017-0646-0");
         articles.add("https://link.springer.com/article/10.1007/s11219-021-09575-w");
         articles.add("https://link.springer.com/article/10.1007/s11859-007-0005-0");
-        articleInfos = new ArrayList<>();
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
     }
 
     public SpringerArticles endSearching() {

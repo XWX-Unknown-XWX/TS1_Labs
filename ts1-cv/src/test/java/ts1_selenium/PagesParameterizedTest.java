@@ -12,15 +12,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PagesParameterizedTest extends TestCase {
 
-    public final static String CHROME_DRIVER =
+    public final static String CHROME_DRIVER_PATH =
             "/Users/dmitry1/Desktop/CVUT/4. semestr/TS1/Zdroje/ChromeDriver/chromedriver";
 
     @ParameterizedTest
     @MethodSource("getArticles")
     public void searchingWithParametrizedTest(ArticleInfo articleInfo) {
         ArticleInfo articlesExpected = new LogInSpringer(getDriver())
-                .loggedPage("email", "password")
-                .getArticleInfo(articleInfo.articleName);
+                .loggedPage("login", "password")
+                .getArticleInfoForParamTest(articleInfo.articleName);
         assertEquals(articlesExpected.datePublished, articleInfo.datePublished);
         assertEquals(articlesExpected.doi, articleInfo.doi);
     }
@@ -31,13 +31,13 @@ public class PagesParameterizedTest extends TestCase {
 
     public static List<ArticleInfo> articleInfoList() {
         WebDriver driver;
-        System.setProperty("webdriver.chrome.driver", CHROME_DRIVER);
+        System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
         driver = new ChromeDriver();
         List<ArticleInfo> articleInfos = new AdvancedSearch(driver)
                 .searchOut()
                 .engageParametrizedSearch()
                 .readArticles();
-
+        System.out.println(); //Select this line and run debug to see the testing process
         driver.quit();
         return articleInfos;
     }

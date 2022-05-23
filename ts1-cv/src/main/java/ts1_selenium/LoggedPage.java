@@ -32,7 +32,7 @@ public class LoggedPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public ArticleInfo getArticleInfo(String articleName) {
+    public ArticleInfo getArticleInfoForParamTest(String articleName) {
         ArticleInfo articleInfo = new ArticleInfo();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         searchInput.sendKeys(articleName);
@@ -49,7 +49,6 @@ public class LoggedPage {
         articleInfo.datePublished = articleDate.getText();
         articleInfo.doi = articleDOI.getText();
         driver.navigate().back();
-        System.out.println(articleInfo + "\n");
         return articleInfo;
     }
 
