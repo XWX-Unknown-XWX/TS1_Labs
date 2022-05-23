@@ -35,6 +35,7 @@ public class AdvancedSearch {
     public AdvancedSearch(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
+        driver.get("https://link.springer.com/advanced-search");
     }
 
     public SearchOut searchOut() {
